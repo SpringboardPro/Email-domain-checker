@@ -1,6 +1,6 @@
 Office.onReady().then(()=> {
         //console.log(Office.context.ui)
-        console.log(Office.context.ui.addHandlerAsync)
+        console.log(Office.context.ui)
         //Office.context.ui.addHandlerAsync(
           //  Office.EventType.DialogParentMessageReceived,
             //onMessageFromParent);     
