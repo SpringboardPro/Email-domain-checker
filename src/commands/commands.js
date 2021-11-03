@@ -26,7 +26,7 @@ function openDialog(event) {
     } else {
       //event.completed({allowEvent: false});
       //display dialog box (callback function in dialog is to create event handler in host page to recieve info from dialog page)
-      var url2 = window.location.origin+'/dialogbox.html'
+      var url2 ='https://hamish-atkins-sb.github.io/Email-domain-checker/src/dialogbox/dialogbox.html'
       var dialog
       Office.context.ui.displayDialogAsync(url2, {height: 50, width: 50, displayInIframe: true},
         function (asyncResult) {
