@@ -32,9 +32,10 @@ function openDialog(event) {
         function (asyncResult) {
           //console.log('hinpm')
           //console.log(Office.RequirementSetSupport.isSetSupported('DialogAPI', '1.2'))
-          console.log(dialog)
-          dialog.addEventHandler(Office.EventType.DialogMessageReceived, processMessage);
+         
+          
           dialog = asyncResult.value;
+          dialog.addEventHandler(Office.EventType.DialogMessageReceived, processMessage);
           dialog.messageChild('hello from the host');
           //dialog = asyncResult.value;
           //dialog.addEventHandler(Office.EventType.DialogMessageReceived, processMessage);
