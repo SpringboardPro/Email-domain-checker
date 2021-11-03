@@ -33,7 +33,7 @@ function openDialog(event) {
           //console.log('hinpm')
           //console.log(Office.RequirementSetSupport.isSetSupported('DialogAPI', '1.2'))
           dialog = asyncResult.value;
-          dialog.messageChild('hello from the host', { targetOrigin: "*" });
+          dialog.messageChild('hello from the host');
           //dialog = asyncResult.value;
           //dialog.addEventHandler(Office.EventType.DialogMessageReceived, processMessage);
           //SOME TRACKING PREVENTION things MEANS messageChild WILL NOT WORK- 
