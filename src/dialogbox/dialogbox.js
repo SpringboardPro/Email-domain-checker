@@ -5,9 +5,9 @@ Office.onReady().then(()=> {
         console.log('in dialog')    
         
         //Recieve emails from host page
-        Office.context.ui.addHandlerAsync(
-            Office.EventType.DialogParentMessageReceived,
-            console.log('message child event recieved'));
+          Office.context.ui.addHandlerAsync(
+                Office.EventType.DialogParentMessageReceived,
+                console.log('hi');     
        
       
          
