@@ -46,7 +46,7 @@ function openDialog(event) {
 };
 
 
-function processMessage(arg,recipients){
+function processMessage(arg){
   console.log(recipients)
   dialog.messageChild("hello from host", { targetOrigin: "*" })
 }
