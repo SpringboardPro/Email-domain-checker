@@ -31,9 +31,10 @@ function openDialog(event) {
       Office.context.ui.displayDialogAsync(url2, {height: 50, width: 50, displayInIframe: true},
 
           dialog = asyncResult.value;
-          //dialog.addEventHandler(Office.EventType.DialogMessageReceived, processMessage);
-           
-          setTimeout(() => {dialog.messageChild('hello from the host', {targetOrigin: "*" })}, 2000);
+          dialog.addEventHandler(Office.EventType.DialogMessageReceived, 
+                                           dialog.messageChild('hello from the host'));
+          
+  
           
         });
     }
