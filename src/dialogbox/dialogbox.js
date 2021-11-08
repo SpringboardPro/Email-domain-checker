@@ -42,7 +42,9 @@ function createEmailCheckBoxList(arg){
     x.setAttribute("id", "email4")
     x.setAttribute("value", "email4")
     var y = document.createElement("LABEL");
-    y.innerHTML = "Email 4";
+    y.setAttribute("id","label")
+    var z = document.getElementById("label");
+    z.innerHTML = "Email 4";
     y.setAttribute("for", "email4")
     x.appendChild(y)
     const element = document.getElementById("dummyElement");
