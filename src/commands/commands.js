@@ -33,7 +33,7 @@ function openDialog(event) {
 
           dialog = asyncResult.value;
           console.log(JSON.stringify(recipients));
-          dialog.addEventHandler(Office.EventType.DialogMessageReceived, dialog.messageChild('hello from host', { targetOrigin: "*" }));
+          dialog.addEventHandler(Office.EventType.DialogMessageReceived, dialog.messageChild("hello from host", { targetOrigin: "*" }));
                     
         });
     }
