@@ -7,9 +7,11 @@ Office.onReady().then(()=> {
         //Recieve emails from host page
         Office.context.ui.addHandlerAsync(
             Office.EventType.DialogParentMessageReceived,
-            onMessageFromParent);     
+            onMessageFromParent);
         
-        
+        Office.context.ui.addEventHandler(Office.EventType.DialogParentMessageReceived, onMessageFromParent);
+      
+         
         
         //Get form results from dialog box
         const form = document.querySelector('form');
