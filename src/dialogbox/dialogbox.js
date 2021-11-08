@@ -26,7 +26,7 @@ Office.onReady().then(()=> {
     });
 
 function createEmailCheckBoxList(arg){
-        /*
+        
     console.log(arg.message)
     const para = document.createElement("p");
     const node = document.createTextNode("This is new.");
@@ -34,6 +34,6 @@ function createEmailCheckBoxList(arg){
 
     const element = document.getElementById("dummyElement");
     element.appendChild(para);
-    */
+    
 }
 
