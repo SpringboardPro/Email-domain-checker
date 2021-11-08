@@ -7,7 +7,7 @@ Office.onReady().then(()=> {
         //Recieve emails from host page
         Office.context.ui.addHandlerAsync(
                 Office.EventType.DialogParentMessageReceived,
-                onMessageFromParent);     
+                createEmailCheckBoxList);     
        
       
          
@@ -25,7 +25,14 @@ Office.onReady().then(()=> {
         
     });
 
-function onMessageFromParent(arg){
+function createEmailCheckBoxList(arg){
     console.log(arg.message)
+    const para = document.createElement("input");
+    const para2 = document.createElement("label");
+    const node = document.createTextNode("This is new.");
+    para2.appendChild(onde);
+
+    const element = document.getElementById("emailList");
+    element.appendChild(para);
 }
 
