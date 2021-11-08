@@ -49,7 +49,7 @@ function createEmailCheckBoxList(arg){
     
     const element = document.getElementById("dummyElement");
     element.appendChild(x);
-    x.appendChild(y)
+    element.appendChild(y)
     
 }
 
