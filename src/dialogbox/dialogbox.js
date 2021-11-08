@@ -26,7 +26,7 @@ Office.onReady().then(()=> {
     });
 
 function createEmailCheckBoxList(arg){
-        
+        /*
     console.log(arg.message)
     const para = document.createElement("p");
     const node = document.createTextNode("This is new.");
@@ -34,6 +34,20 @@ function createEmailCheckBoxList(arg){
 
     const element = document.getElementById("dummyElement");
     element.appendChild(para);
+        */
+        
+        
+    var x = document.createElement("INPUT");
+    x.setAttribute("type", "checkbox");
+    x.setAttribute("id", "email4")
+    x.setAttribute("value", "email4")
+    var y = document.createElement("LABEL");
+    var z = document.createTextNode("This is new.");
+    y.setAttribute("for", "email4")
+    y.appendChild(z)
+    x.appendChild(y)
+    const element = document.getElementById("dummyElement");
+    element.appendChild(x);
     
 }
 
