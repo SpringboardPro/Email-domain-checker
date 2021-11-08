@@ -1,3 +1,5 @@
+var recipients
+
 Office.onReady().then(()=> {
         console.log(Office.context.ui)
         Office.context.ui.messageParent("Dialog is ready")
@@ -26,25 +28,19 @@ Office.onReady().then(()=> {
     });
 
 function createEmailCheckBoxList(arg){
-        /*
-    console.log(arg.message)
-    const para = document.createElement("p");
-    const node = document.createTextNode("This is new.");
-    para.appendChild(node);
-
-    const element = document.getElementById("dummyElement");
-    element.appendChild(para);
-        */
-    //DO THIS ON THE PREVIOUS PAGE???
-    for (let i = 0; i < 3; i++) { 
+        
+    all_recipients = create_list_of_recipients(recipients){
+    
+        
+    for (let i = 0; i < recipients.length; i++) { 
             var x = document.createElement("INPUT");
             x.setAttribute("type", "checkbox");
-            x.setAttribute("id", "email4")
-            x.setAttribute("value", "email4")
+            x.setAttribute("id", "email"+String(i))
+            x.setAttribute("value", "email"+String(i))
 
             var y = document.createElement("LABEL");
-            y.setAttribute("for", "email4")    
-            y.innerHTML = "Email 4";
+            y.setAttribute("for", "email"+String(i))    
+            y.innerHTML = all_recipients[i];
 
 
             const element = document.getElementById("dummyElement");
@@ -52,4 +48,14 @@ function createEmailCheckBoxList(arg){
             element.appendChild(y)
     }
 }
+
+function create_list_of_recipients(recipients){
+        var all_recipients = []
+        recipients_object = JSON.parse(recipients)
+        all_recipients.push(recipients_object.ccRecipients)
+        all_recipients.push(recipients_object.toRecipients)
+        return all_recipients
+}
+        
+        
 
