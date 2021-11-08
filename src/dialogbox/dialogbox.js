@@ -3,6 +3,7 @@ Office.onReady().then(()=> {
         Office.context.ui.messageParent("READY")
         //OFFICE MIGHT NOT BE READY BY THE TIME IT TRIES TO SEND INFORMATION TO THE DIALOG- GET DIALOG TO SEND BACK FIRST THAT IT IS READY THEN USE meesageChild
         console.log('in dialog')
+        const form = document.querySelector('form');
         form.addEventListener('submit', e => {
                 e.preventDefault();
 
