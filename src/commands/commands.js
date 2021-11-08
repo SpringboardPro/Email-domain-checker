@@ -32,7 +32,8 @@ function openDialog(event) {
 
           dialog = asyncResult.value;
           
-          dialog.addEventHandler(Office.EventType.DialogMessageReceived, dialog.messageChild('hello from the host', { targetOrigin: "*" }));
+          dialog.addEventHandler(Office.EventType.DialogMessageReceived, processMessage);
+          //dialog.messageChild('hello from the host', { targetOrigin: "*" })
           
         });
     }
