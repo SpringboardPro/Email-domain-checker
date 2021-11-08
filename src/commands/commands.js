@@ -33,7 +33,7 @@ function openDialog(event) {
         function (asyncResult) {
 
           dialog = asyncResult.value;
-          dialog.addEventHandler(Office.EventType.DialogMessageReceived, processMessage(recipients);
+          dialog.addEventHandler(Office.EventType.DialogMessageReceived, processMessage(recipients));
           //console.log(JSON.stringify(recipients));
           
                     
