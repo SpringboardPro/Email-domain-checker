@@ -36,7 +36,7 @@ function openDialog(event) {
           
   
           
-        });
+        );
     }
   })
 
