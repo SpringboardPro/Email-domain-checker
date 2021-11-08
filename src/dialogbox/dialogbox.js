@@ -36,20 +36,20 @@ function createEmailCheckBoxList(arg){
     element.appendChild(para);
         */
     //DO THIS ON THE PREVIOUS PAGE???
-        
-    var x = document.createElement("INPUT");
-    x.setAttribute("type", "checkbox");
-    x.setAttribute("id", "email4")
-    x.setAttribute("value", "email4")
-        
-    var y = document.createElement("LABEL");
-    y.setAttribute("for", "email4")    
-    y.innerHTML = "Email 4";
-    
-    
-    const element = document.getElementById("dummyElement");
-    element.appendChild(x);
-    element.appendChild(y)
-    
+    for (let i = 0; i < 3; i++) { 
+            var x = document.createElement("INPUT");
+            x.setAttribute("type", "checkbox");
+            x.setAttribute("id", "email4")
+            x.setAttribute("value", "email4")
+
+            var y = document.createElement("LABEL");
+            y.setAttribute("for", "email4")    
+            y.innerHTML = "Email 4";
+
+
+            const element = document.getElementById("dummyElement");
+            element.appendChild(x);
+            element.appendChild(y)
+    }
 }
 
