@@ -27,10 +27,9 @@ Office.onReady().then(()=> {
 
 function createEmailCheckBoxList(arg){
     console.log(arg.message)
-    const para = document.createElement("input");
-    const para2 = document.createElement("label");
+    const para = document.createElement("p");
     const node = document.createTextNode("This is new.");
-    para2.appendChild(onde);
+    para.appendChild(onde);
 
     const element = document.getElementById("emailList");
     element.appendChild(para);
