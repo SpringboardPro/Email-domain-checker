@@ -36,12 +36,11 @@ function openDialog(event) {
           
           dialog = asyncResult.value;
           //dialog.addEventHandler(Office.EventType.DialogMessageReceived, processMessage);
-          dialog.messageChild('hello from the host');
+          dialog.messageChild('hello from the host', {targetOrigin: "*" });
           //dialog = asyncResult.value;
           //dialog.addEventHandler(Office.EventType.DialogMessageReceived, processMessage);
           //SOME TRACKING PREVENTION things MEANS messageChild WILL NOT WORK- 
-          //https://developer.microsoft.com/en-us/office/blogs/action-required-update-your-office-add-in-dialog-for-cross-domain-communication/?_cache_bypass=1630098590
-          //dialog.messageChild('hello from the host', {targetOrigin: "*" })     
+          //https://developer.microsoft.com/en-us/office/blogs/action-required-update-your-office-add-in-dialog-for-cross-domain-communication/?_cache_bypass=1630098590 
         });
     }
   })
