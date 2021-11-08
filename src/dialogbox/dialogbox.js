@@ -1,5 +1,3 @@
-var recipients
-
 Office.onReady().then(()=> {
         console.log(Office.context.ui)
         Office.context.ui.messageParent("Dialog is ready")
@@ -29,7 +27,7 @@ Office.onReady().then(()=> {
 
 function createEmailCheckBoxList(arg){
         
-    all_recipients = create_list_of_recipients(recipients)
+    all_recipients = create_list_of_recipients(arg)
     
         
     for (let i = 0; i < recipients.length; i++) { 
