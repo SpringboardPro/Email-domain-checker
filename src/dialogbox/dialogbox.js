@@ -7,7 +7,7 @@ Office.onReady().then(()=> {
         //Recieve emails from host page
           Office.context.ui.addHandlerAsync(
                 Office.EventType.DialogParentMessageReceived,
-                console.log('hi'));     
+                onMessageFromParent);     
        
       
          
