@@ -17,7 +17,8 @@ function openDialog(event) {
   var promise1 = getToEmails();
   var promise2 = getCCEmails();
   var promise3 = Promise.all([promise1, promise2]).then(function(result){
-    return recipients = getRecipients(result)
+    recipients = getRecipients(result)
+    return 
   })
 
   //check if recipients are only internal or not
