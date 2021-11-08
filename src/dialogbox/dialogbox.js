@@ -1,6 +1,6 @@
 Office.onReady().then(()=> {
         console.log(Office.context.ui)
-        Office.context.ui.messageParent("Hello from the dialog")
+        Office.context.ui.messageParent("Dialog is ready")
         //OFFICE MIGHT NOT BE READY BY THE TIME IT TRIES TO SEND INFORMATION TO THE DIALOG- GET DIALOG TO SEND BACK FIRST THAT IT IS READY THEN USE meesageChild
           
         
