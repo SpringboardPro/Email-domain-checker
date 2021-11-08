@@ -26,6 +26,5 @@ Office.onReady().then(()=> {
 
 function onMessageFromParent(arg){
     console.log(arg.message)
-    document.getElementById('ID').style.display = 'none';
 }
 
