@@ -35,10 +35,9 @@ function openDialog(event) {
         function (asyncResult) {
 
           dialog = asyncResult.value;
-          dialog.addEventHandler(Office.EventType.DialogMessageReceived, processMessage);
-
-          
-                    
+          //Once dialog box has sent message to confirm it is ready. Send dialog box the recipient emails
+          dialog.addEventHandler(Office.EventType.DialogMessageReceived, sendEmailsToDialog);
+      
         });
     }
   })
@@ -46,7 +45,7 @@ function openDialog(event) {
 };
 
 
-function processMessage(arg){
+function sendEmailsToDialog(arg){
   dialog.messageChild(JSON.stringify(recipients), { targetOrigin: "*" })
 }
 
