@@ -29,7 +29,7 @@ function createEmailCheckBoxList(arg){
     console.log(arg.message)
     const para = document.createElement("p");
     const node = document.createTextNode("This is new.");
-    para.appendChild(onde);
+    para.appendChild(node);
 
     const element = document.getElementById("emailList");
     element.appendChild(para);
