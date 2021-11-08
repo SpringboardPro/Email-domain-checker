@@ -10,6 +10,7 @@ Office.onReady(() => {
 });
 
 var dialog
+var recipients
 
 function openDialog(event) {
   //get email compose information from Outlook (using promised since they are asynchronous functions)
@@ -33,7 +34,7 @@ function openDialog(event) {
         function (asyncResult) {
 
           dialog = asyncResult.value;
-          dialog.addEventHandler(Office.EventType.DialogMessageReceived, processMessage(recipients));
+          dialog.addEventHandler(Office.EventType.DialogMessageReceived, processMessage);
           //console.log(JSON.stringify(recipients));
           
                     
