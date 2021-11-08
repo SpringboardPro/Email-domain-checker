@@ -9,8 +9,9 @@ Office.onReady(() => {
   // If needed, Office.js is ready to be called
 });
 
-function openDialog(event) {
+var dialog
 
+function openDialog(event) {
   //get email compose information from Outlook (using promised since they are asynchronous functions)
   var promise1 = getToEmails();
   var promise2 = getCCEmails();
@@ -27,7 +28,7 @@ function openDialog(event) {
       //event.completed({allowEvent: false});
       //display dialog box (callback function in dialog is to create event handler in host page to recieve info from dialog page)
       var url ='https://hamish-atkins-sb.github.io/Email-domain-checker/src/dialogbox/dialogbox.html'
-      var dialog
+      
       Office.context.ui.displayDialogAsync(url, {height: 50, width: 50, displayInIframe: true},
         function (asyncResult) {
 
