@@ -32,9 +32,9 @@ function openDialog(event) {
         function (asyncResult) {
 
           dialog = asyncResult.value;
-          console.log(JSON.stringify(recipients));
-          dialog.addEventHandler(Office.EventType.DialogMessageReceived, console.log('hello from host'));
-          //dialog.messageChild("hello from host", { targetOrigin: "*" })
+          dialog.addEventHandler(Office.EventType.DialogMessageReceived, processMessage);
+          //console.log(JSON.stringify(recipients));
+          
                     
         });
     }
@@ -45,6 +45,7 @@ function openDialog(event) {
 
 function processMessage(arg){
   console.log(arg.message)
+  dialog.messageChild("hello from host", { targetOrigin: "*" })
 }
 
 
