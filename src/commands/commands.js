@@ -36,8 +36,8 @@ function openDialog(event) {
           
           dialog = asyncResult.value;
           //dialog.addEventHandler(Office.EventType.DialogMessageReceived, processMessage);
-          
-          setTimeout(() => {  dialog.messageChild('hello from the host', {targetOrigin: "*" }); }, 2000);
+           dialog.messageChild('hello from the host', {targetOrigin: "*" });
+          setTimeout(() => {console.log('waited 2 seconds'}, 2000);
           //dialog = asyncResult.value;
           //dialog.addEventHandler(Office.EventType.DialogMessageReceived, processMessage);
           //SOME TRACKING PREVENTION things MEANS messageChild WILL NOT WORK- 
