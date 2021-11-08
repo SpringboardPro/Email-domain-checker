@@ -11,8 +11,8 @@ Office.onReady().then(()=> {
                     .join(',');
 
                 console.log(`?${values}`);
+
                 });
-});
         
         
         
