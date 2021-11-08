@@ -29,19 +29,12 @@ function openDialog(event) {
       var url2 ='https://hamish-atkins-sb.github.io/Email-domain-checker/src/dialogbox/dialogbox.html'
       var dialog
       Office.context.ui.displayDialogAsync(url2, {height: 50, width: 50, displayInIframe: true},
-        function (asyncResult) {
-          //console.log('hinpm')
-          //console.log(Office.RequirementSetSupport.isSetSupported('DialogAPI', '1.2'))
-         
-          
+
           dialog = asyncResult.value;
           //dialog.addEventHandler(Office.EventType.DialogMessageReceived, processMessage);
            
           setTimeout(() => {dialog.messageChild('hello from the host', {targetOrigin: "*" })}, 2000);
-          //dialog = asyncResult.value;
-          //dialog.addEventHandler(Office.EventType.DialogMessageReceived, processMessage);
-          //SOME TRACKING PREVENTION things MEANS messageChild WILL NOT WORK- 
-          //https://developer.microsoft.com/en-us/office/blogs/action-required-update-your-office-add-in-dialog-for-cross-domain-communication/?_cache_bypass=1630098590 
+          
         });
     }
   })
