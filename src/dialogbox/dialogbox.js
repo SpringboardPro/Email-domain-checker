@@ -47,9 +47,10 @@ function createEmailCheckBoxList(arg){
     }
 }
 
-function create_list_of_recipients(recipients){
+function create_list_of_recipients(arg){
+        console.log(arg)
         var all_recipients = []
-        recipients_object = JSON.parse(recipients)
+        recipients_object = JSON.parse(arg.message)
         all_recipients.push(recipients_object.ccRecipients)
         all_recipients.push(recipients_object.toRecipients)
         return all_recipients
