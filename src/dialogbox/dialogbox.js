@@ -28,9 +28,9 @@ Office.onReady().then(()=> {
 function createEmailCheckBoxList(arg){
         
     all_recipients = create_list_of_recipients(arg)
-    
+    console.log(all_recipients)
         
-    for (let i = 0; i < recipients.length; i++) { 
+    for (let i = 0; i < all_recipients.length; i++) { 
             var x = document.createElement("INPUT");
             x.setAttribute("type", "checkbox");
             x.setAttribute("id", "email"+String(i))
@@ -48,7 +48,7 @@ function createEmailCheckBoxList(arg){
 }
 
 function create_list_of_recipients(arg){
-        console.log(arg)
+        
         var all_recipients = []
         recipients_object = JSON.parse(arg.message)
         all_recipients.push(recipients_object.ccRecipients)
