@@ -29,7 +29,7 @@ Office.onReady().then(()=> {
 
 function createEmailCheckBoxList(arg){
         
-    all_recipients = create_list_of_recipients(recipients){
+    all_recipients = create_list_of_recipients(recipients)
     
         
     for (let i = 0; i < recipients.length; i++) { 
