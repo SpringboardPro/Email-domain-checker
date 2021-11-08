@@ -26,6 +26,6 @@ Office.onReady().then(()=> {
     });
 
 function onMessageFromParent(arg){
-    console.log('hello')
+    console.log(arg.message)
 }
 
