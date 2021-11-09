@@ -17,6 +17,8 @@ Office.onReady().then(()=> {
                 } else{
                         document.getElementById("warning").style.display = "none";
                         console.log('SEND IT')
+                        let selected_emails = {toRecipients: toValues, ccRecipients: ccValues}
+                        Office.context.ui.messageParent(JSON.stringify(selected_emails))
                 }
       }
          
