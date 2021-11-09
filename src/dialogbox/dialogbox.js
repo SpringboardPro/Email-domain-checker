@@ -9,16 +9,16 @@ Office.onReady().then(()=> {
                 createEmailCheckBoxList);     
        
       get_form_values = function(){
-                const form = document.querySelector('toEmailList');
-                form.addEventListener('submit', e => {
+                const toForm = document.querySelector('toEmailList');
+                toForm.addEventListener('submit', e => {
                         e.preventDefault();
                           const values = Array.from(document.querySelectorAll('input[type=checkbox]:checked'))
                             .map(item => item.value)
                             .join(',');
                         console.log(`${values}`);
                 });
-                const form = document.querySelector('ccEmailList');
-                form.addEventListener('submit', e => {
+                const ccForm = document.querySelector('ccEmailList');
+                ccForm.addEventListener('submit', e => {
                         e.preventDefault();
                           const values = Array.from(document.querySelectorAll('input[type=checkbox]:checked'))
                             .map(item => item.value)
