@@ -13,6 +13,7 @@ var dialog
 var recipients
 var all_recipient_data
 var item
+var send_flag = false
 
 function openDialog(event) {
   //get email compose information from Outlook (using promised since they are asynchronous functions)
@@ -41,7 +42,9 @@ function openDialog(event) {
           dialog = asyncResult.value;
           //Once dialog box has sent message to confirm it is ready. Send dialog box the recipient emails
           dialog.addEventHandler(Office.EventType.DialogMessageReceived, sendEmailsToDialog);
-      
+          if (send_flag){
+            event.completed({allowEvent: false});
+          }
         });
     }
   })
@@ -60,7 +63,7 @@ function sendEmailwithUpdatedRecipients(arg){
   if (message.messageType == 'form_output'){
     setRecipients(message.toRecipients, message.ccRecipients)
     dialog.close()
-    event.completed({allowEvent: false});
+    send_flag = true
   }
 }
 
