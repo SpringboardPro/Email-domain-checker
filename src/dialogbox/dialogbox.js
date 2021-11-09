@@ -51,8 +51,10 @@ function create_list_of_recipients(arg){
         
         var all_recipients = []
         recipients_object = JSON.parse(arg.message)
-        all_recipients.push(recipients_object.ccRecipients)
-        all_recipients.push(recipients_object.toRecipients)
+        for (let i = 0; i < recipients_object.ccRecipients.length; i++) { 
+                all_recipients.push(recipients_object.ccRecipients[i])}
+        for (let i = 0; i < recipients_object.toRecipients.length; i++) { 
+                all_recipients.push(recipients_object.toRecipients[i])}
         return all_recipients
 }
         
