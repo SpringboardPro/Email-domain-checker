@@ -34,14 +34,14 @@ Office.onReady().then(()=> {
 function createEmailCheckBoxList(arg){
      
     unstringified_message = JSON.parse(arg.message)
-    to_recipients = unstringified_message[0]
-    cc_recipients = unstringified_message[1]
+    to_recipients1 = unstringified_message[0]
+    cc_recipients1 = unstringified_message[1]
     //to_recipients = unstringified_message.toRecipients
     //cc_recipients = unstringified_message.ccRecipients
     
     to_recipients.push({displayName: 'Deselect This', emailAddress: 'deselect.this@springboard.pro', recipientType: 'other'})
-    to_recipients = shuffle_array(to_recipients)
-    cc_recipients = shuffle_array(cc_recipients)
+    to_recipients = shuffle_array(to_recipients1)
+    cc_recipients = shuffle_array(cc_recipients1)
         
     if (to_recipients.length > 0){
         for (let i = 0; i < to_recipients.length; i++) { 
