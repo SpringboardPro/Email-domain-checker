@@ -11,6 +11,7 @@ Office.onReady(() => {
 
 var dialog
 var recipients
+var all_recipient_data
 var item
 
 function openDialog(event) {
@@ -18,13 +19,14 @@ function openDialog(event) {
   var promise1 = getToEmails();
   var promise2 = getCCEmails();
   var promise3 = Promise.all([promise1, promise2]).then(function(result){
+    all_recipient_data = result
     recipients = getRecipients(result)
     return recipients
   })
 
   //check if recipients are only internal or not
   promise3.then(function(result){
-    console.log(result)
+    console.log(all_recipient_data)
     var internal_bool = (check_if_internal(result.toRecipients) && check_if_internal(result.ccRecipients))
     if (internal_bool){
       event.completed({allowEvent: true});
@@ -142,7 +144,6 @@ function getRecipients(result){
 //gets emails using Outlook API and formats and returns in an array
 function processEmails(result){
   var emails = new Array()
-  console.log(result)
   for (var i = 0; i < result.length; i++) {
     var Email = result[i].emailAddress
     emails.push(Email)
