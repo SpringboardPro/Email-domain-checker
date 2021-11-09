@@ -60,6 +60,7 @@ function sendEmailwithUpdatedRecipients(arg){
   if (message.messageType == 'form_output'){
     setRecipients(message.toRecipients, message.ccRecipients)
     dialog.close()
+    event.completed({allowEvent: false});
   }
 }
 
