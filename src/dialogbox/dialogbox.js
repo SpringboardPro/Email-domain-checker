@@ -44,7 +44,7 @@ function createEmailCheckBoxList(arg){
                 $(document.createElement('input')).prop({
                     id: 'email'+String(i),
                     name: String(to_recipients[i]),
-                    value: 'toCheckBox,
+                    value: 'toCheckBox',
                     type: 'checkbox'
                 })
             ).append(
