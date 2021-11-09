@@ -75,10 +75,10 @@ function createEmailCheckBoxList(arg){
                 */
                 }
        } else {
-             var to_list_title = document.getElementById('toListTitle')
-             to_list_title.style.display = "none";
-             var to_list_container = document.getElementById('toContainer')
-             to_list_container.style.display = "none";
+             var cc_list_title = document.getElementById('ccListTitle')
+             cc_list_title.style.display = "none";
+             var cc_list_container = document.getElementById('ccContainer')
+             cc_list_container.style.display = "none";
     }
         
 }
