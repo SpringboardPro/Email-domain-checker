@@ -10,7 +10,7 @@ Office.onReady().then(()=> {
        
       get_form_values = function(){
                 //const toForm = document.querySelector('toEmailList');
-                const toValues = Array.from(document.querySelector('toCheckBox').checked).map(item => item.value).join(',');
+               // const toValues = Array.from(document.querySelector('toCheckBox').checked).map(item => item.value).join(',');
                 const toValues = document.querySelectorAll('toCheckbox','input[type='checkbox']:checked')
                 console.log(toValues);
                 /*
