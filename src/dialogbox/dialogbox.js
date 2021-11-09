@@ -44,7 +44,7 @@ function createEmailCheckBoxList(arg){
                     for: 'email'+String(i)
                 }).html(String(to_recipients[i]))
                 ).append(document.createElement('br'));
-    }else{
+    } else{
         var to_list_title = document.getElementByID('toListTitle')
         to_list_title.style.display = "none";
         var to_list_container = document.getElementByID('toContainer')
@@ -65,7 +65,7 @@ function createEmailCheckBoxList(arg){
                     for: 'email'+String(i)
                 }).html(String(cc_recipients[i]))
                 ).append(document.createElement('br'));
-       }else{
+       } else{
              var to_list_title = document.getElementByID('toListTitle')
              to_list_title.style.display = "none";
              var to_list_container = document.getElementByID('toContainer')
@@ -74,16 +74,5 @@ function createEmailCheckBoxList(arg){
         }
 }
 
-function create_list_of_recipients(arg){
-        
-        var all_recipients = []
-        recipients_object = JSON.parse(arg.message)
-        for (let i = 0; i < recipients_object.ccRecipients.length; i++) { 
-                all_recipients.push(recipients_object.ccRecipients[i])}
-        for (let i = 0; i < recipients_object.toRecipients.length; i++) { 
-                all_recipients.push(recipients_object.toRecipients[i])}
-        return all_recipients
-}
-        
         
 
