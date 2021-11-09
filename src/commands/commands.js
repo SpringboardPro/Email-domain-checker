@@ -17,9 +17,18 @@ var send_event
 
 function openDialog(event) {
   //get email compose information from Outlook (using promised since they are asynchronous functions)
-  var promise1 = getToEmails();
-  console.log(promise1)
-  var promise2 = getCCEmails();
+  
+  item = Office.context.mailbox.item;
+    // Verify if the composed item is an appointment or message.
+  if (item.itemType == Office.MailboxEnums.ItemType.Appointment){
+    var promise1 = getToEmails_appointment();
+    var promise2 = getCCEmails_appointment();
+  } else {
+    var promise1 = getToEmails();
+    var promise2 = getCCEmails();
+  }
+  
+  
   var promise3 = Promise.all([promise1, promise2]).then(function(result){
     all_recipient_data = result
     recipients = getRecipients(result)
@@ -135,6 +144,32 @@ function getCCEmails() {
   return new Promise(function (resolve, reject) {
       try {
         Office.context.mailbox.item.cc.getAsync(function (asyncResult) {
+              resolve(asyncResult.value);
+          });
+      }
+      catch (error) {
+          reject('Error');
+      }
+  })
+}
+
+function getToEmails_appointment() {
+  return new Promise(function (resolve, reject) {
+      try {
+        Office.context.mailbox.item.requiredAttendees.getAsync(function (asyncResult) {
+              resolve(asyncResult.value);
+          });
+      }
+      catch (error) {
+          reject('Error');
+      }
+  })
+}
+
+function getCCEmails_appointment() {
+  return new Promise(function (resolve, reject) {
+      try {
+        Office.context.mailbox.item.optionalAttendees.getAsync(function (asyncResult) {
               resolve(asyncResult.value);
           });
       }
