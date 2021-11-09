@@ -11,6 +11,10 @@ Office.onReady().then(()=> {
       get_form_values = function(){
                 var toValues = Array.from(document.querySelectorAll("input[type='checkbox']:checked.toCheckBox")).map(item => item.name)
                 var ccValues = Array.from(document.querySelectorAll("input[type='checkbox']:checked.ccCheckBox")).map(item => item.name)
+                
+                if (toValues.includes('deselect.this@springboard.pro')) {
+                        document.getElementById("warning").style.display = "block";
+                }
       }
          
         
