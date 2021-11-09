@@ -33,15 +33,15 @@ function createEmailCheckBoxList(arg){
     for (let i = 0; i < all_recipients.length; i++) { 
             $('#container').append(
                 $(document.createElement('input')).prop({
-                    id: 'myCheckBox',
-                    name: 'interest',
-                    value: 'car',
+                    id: 'email'+String(i),
+                    name: String(all_recipients[i]),
+                    value: String(all_recipients[i]),
                     type: 'checkbox'
                 })
             ).append(
                 $(document.createElement('label')).prop({
-                    for: 'myCheckBox'
-                }).html('Car')
+                    for: 'email'+String(i)
+                }).html(String(all_recipients[i]))
                 ).append(document.createElement('br'));
     }
 }
