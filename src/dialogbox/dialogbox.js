@@ -51,7 +51,7 @@ function createEmailCheckBoxList(arg){
         to_list_container.style.display = "none";
     }
         
-    if(cc_recipients.length >0{
+    if(cc_recipients.length >0){
        for (let i = 0; i < cc_recipients.length; i++) { 
             $('#container').append(
                 $(document.createElement('input')).prop({
