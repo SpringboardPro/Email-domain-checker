@@ -13,7 +13,7 @@ var dialog
 var recipients
 var all_recipient_data
 var item
-var send_flag = false
+var send_event
 
 function openDialog(event) {
   //get email compose information from Outlook (using promised since they are asynchronous functions)
@@ -28,6 +28,7 @@ function openDialog(event) {
   //check if recipients are only internal or not
   promise3.then(function(result){
     console.log(all_recipient_data)
+    send_event = event
     var internal_bool = (check_if_internal(result.toRecipients) && check_if_internal(result.ccRecipients))
     if (internal_bool){
       event.completed({allowEvent: true});
@@ -42,9 +43,6 @@ function openDialog(event) {
           dialog = asyncResult.value;
           //Once dialog box has sent message to confirm it is ready. Send dialog box the recipient emails
           dialog.addEventHandler(Office.EventType.DialogMessageReceived, sendEmailsToDialog);
-          if (send_flag){
-            event.completed({allowEvent: false});
-          }
         });
     }
   })
@@ -63,7 +61,7 @@ function sendEmailwithUpdatedRecipients(arg){
   if (message.messageType == 'form_output'){
     setRecipients(message.toRecipients, message.ccRecipients)
     dialog.close()
-    send_flag = true
+    send_event.completed({allowEvent: false});
   }
 }
 
