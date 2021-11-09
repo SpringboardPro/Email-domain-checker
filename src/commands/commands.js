@@ -48,7 +48,7 @@ function openDialog(event) {
                 dialog.addEventHandler(Office.EventType.DialogMessageReceived, sendEmailsToDialog);
               //if dialog  sends event (probably user closes), then do 'dialogClosed' function
                 dialog.addEventHandler(Office.EventType.DialogEventReceived, dialogClosed);
-        });
+        };
     }
   })
 
