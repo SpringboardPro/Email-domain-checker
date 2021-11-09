@@ -47,8 +47,9 @@ function openDialog(event) {
 
 
 function sendEmailsToDialog(arg){
-  dialog.messageChild(JSON.stringify(recipients), { targetOrigin: "*" })
-  dialog.addEventHandler(Office.EventType.DialogMessageReceived, sendEmailwithUpdatedRecipients);
+  if (JSON.parse(arg.message).messageType == 'initialise') {
+    dialog.messageChild(JSON.stringify(recipients), { targetOrigin: "*" })
+    dialog.addEventHandler(Office.EventType.DialogMessageReceived, sendEmailwithUpdatedRecipients);}
 }
 
 function sendEmailwithUpdatedRecipients(arg){
