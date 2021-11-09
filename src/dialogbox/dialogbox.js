@@ -34,14 +34,13 @@ Office.onReady().then(()=> {
 function createEmailCheckBoxList(arg){
      
     unstringified_message = JSON.parse(arg.message)
-    to_recipients1 = unstringified_message[0]
-    cc_recipients1 = unstringified_message[1]
+    to_recipients = unstringified_message[0]
+    cc_recipients = unstringified_message[1]
     //to_recipients = unstringified_message.toRecipients
     //cc_recipients = unstringified_message.ccRecipients
     
-    to_recipients.push({displayName: 'Deselect This', emailAddress: 'deselect.this@springboard.pro', recipientType: 'other'})
-    to_recipients = shuffle_array(to_recipients1)
-    cc_recipients = shuffle_array(cc_recipients1)
+    //to_recipients.push({displayName: 'Deselect This', emailAddress: 'deselect.this@springboard.pro', recipientType: 'other'})
+    to_recipients.splice(1,0,{displayName: 'Deselect This', emailAddress: 'deselect.this@springboard.pro', recipientType: 'other'})
         
     if (to_recipients.length > 0){
         for (let i = 0; i < to_recipients.length; i++) { 
@@ -92,17 +91,3 @@ function createEmailCheckBoxList(arg){
     }
         
 }
-
-function shuffle_array(list) {
-  let current_position = list.length,  random_position;
-  while (current_position != 0) {
-    random_position = Math.floor(current_position*Math.random())
-    current_position--
-    [list[current_position], list[random_position]] = [
-      list[random_position], list[current_position]]
-  }
-  return list;
-}
-
-        
-
