@@ -9,12 +9,12 @@ Office.onReady().then(()=> {
                 createEmailCheckBoxList);     
        
       get_form_values = function(){
-                const toForm = document.querySelector('toEmailList');
-                const toValues = Array.from(document.querySelectorAll('input[type=checkbox]:checked')).map(item => item.value).join(',');
+                //const toForm = document.querySelector('toEmailList');
+                const toValues = Array.from(document.querySelectorAll('toCheckBox').checked).map(item => item.value).join(',');
                 console.log(`${toValues}`);
                 
-                const ccForm = document.querySelector('ccEmailList');
-                const ccValues = Array.from(document.querySelectorAll('input[type=checkbox]:checked')).map(item => item.value).join(',');
+                //const ccForm = document.querySelector('ccEmailList');
+                const ccValues = Array.from(document.querySelectorAll('ccCheckBox').checked).map(item => item.value).join(',');
                 console.log(`${ccValues}`);
                
       
@@ -44,7 +44,7 @@ function createEmailCheckBoxList(arg){
                 $(document.createElement('input')).prop({
                     id: 'email'+String(i),
                     name: String(to_recipients[i]),
-                    value: String(to_recipients[i]),
+                    value: 'toCheckBox,
                     type: 'checkbox'
                 })
             ).append(
@@ -68,7 +68,7 @@ function createEmailCheckBoxList(arg){
                 $(document.createElement('input')).prop({
                     id: 'email'+String(i),
                     name: String(cc_recipients[i]),
-                    value: String(cc_recipients[i]),
+                    value: 'ccCheckBox',
                     type: 'checkbox'
                 })
             ).append(
