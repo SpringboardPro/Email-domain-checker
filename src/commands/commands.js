@@ -97,7 +97,6 @@ function setRecipients(toRecipients, ccRecipients) {
                 // Async call to set cc-recipients of the item completed.
             }
     }); // End cc setAsync.
-    }
 }
 
 function getToEmails() {
