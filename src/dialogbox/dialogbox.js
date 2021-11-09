@@ -48,7 +48,7 @@ function createEmailCheckBoxList(arg){
             $('#toContainer').append(
                 $(document.createElement('input')).prop({
                     id: 'email'+String(i),
-                    name: JSON.stringify(to_recipients[i])),
+                    name: JSON.stringify(to_recipients[i]),
                     class: 'toCheckBox',
                     type: 'checkbox'
                 })
