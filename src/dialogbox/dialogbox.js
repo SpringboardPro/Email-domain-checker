@@ -1,5 +1,4 @@
 Office.onReady().then(()=> {
-        console.log(Office.context.ui)
         Office.context.ui.messageParent("Dialog is ready")
         //OFFICE MIGHT NOT BE READY BY THE TIME IT TRIES TO SEND INFORMATION TO THE DIALOG- GET DIALOG TO SEND BACK FIRST THAT IT IS READY THEN USE meesageChild
           
@@ -29,14 +28,14 @@ function createEmailCheckBoxList(arg){
      
     unstringified_message = JSON.parse(arg.message)
     to_recipients = unstringified_message.toRecipients
-    console.log(to_recipients)
+   
     cc_recipients = unstringified_message.ccRecipients
-    console.log(cc_recipients)
+    
     
     if (to_recipients.length > 0){
         for (let i = 0; i < to_recipients.length; i++) { 
                 
-            $('#container').append(
+            $('#toContainer').append(
                 $(document.createElement('input')).prop({
                     id: 'email'+String(i),
                     name: String(to_recipients[i]),
@@ -60,7 +59,7 @@ function createEmailCheckBoxList(arg){
     if(cc_recipients.length >0){
        for (let i = 0; i < cc_recipients.length; i++) { 
                
-            $('#container').append(
+            $('#ccContainer').append(
                 $(document.createElement('input')).prop({
                     id: 'email'+String(i),
                     name: String(cc_recipients[i]),
