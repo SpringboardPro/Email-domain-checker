@@ -12,7 +12,7 @@ Office.onReady().then(()=> {
                 //const toForm = document.querySelector('toEmailList');
                // const toValues = Array.from(document.querySelector('toCheckBox').checked).map(item => item.value).join(',');
                 var toCheckedBoxes = []
-                var toValues = Array.from(document.querySelectorAll("input[type='checkbox']:checked.toCheckBox").map(item => item.name)
+                var toValues = Array.from(document.querySelectorAll("input[type='checkbox']:checked.toCheckBox")).map(item => item.name)
                 console.log(toValues)
               /*
                 //const ccForm = document.querySelector('ccEmailList');
