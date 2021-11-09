@@ -26,10 +26,11 @@ Office.onReady().then(()=> {
     });
 
 function createEmailCheckBoxList(arg){
-        
-    to_recipients = arg.toRecipients
+     
+    unstringified_message = JSON.parse(arg.message)
+    to_recipients = unstringified_message.toRecipients
     console.log(to_recipients)
-    cc_recipients = arg.ccRecipients
+    cc_recipients = unstringified_message.ccRecipients
     console.log(cc_recipients)
     
     if (to_recipients.length > 0){
