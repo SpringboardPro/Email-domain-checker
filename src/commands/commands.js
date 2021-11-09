@@ -61,7 +61,7 @@ function sendEmailwithUpdatedRecipients(arg){
   if (message.messageType == 'form_output'){
     setRecipients(message.toRecipients, message.ccRecipients)
     dialog.close()
-    print(send_event)
+    console.log(send_event)
     send_event.completed({allowEvent: false});
   }
 }
