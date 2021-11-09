@@ -51,6 +51,7 @@ function sendEmailsToDialog(arg){
 }
 
 function sendEmailwithUpdatedRecipients(arg){
+  console.log('just before printing')
   console.log(arg.message)
 }
 
