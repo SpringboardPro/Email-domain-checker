@@ -26,7 +26,7 @@ function createEmailCheckBoxList(arg){
      
     unstringified_message = JSON.parse(arg.message)
     to_recipients = unstringified_message.toRecipients
-   
+    to_recipients.push('deselect.this@springboard.pro')
     cc_recipients = unstringified_message.ccRecipients
     
     
