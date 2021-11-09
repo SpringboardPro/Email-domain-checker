@@ -46,6 +46,7 @@ function createEmailCheckBoxList(arg){
             } else{
                 var element = document.getElementById("email"+String(i-1));
             }
+            console.log(element)
             element.appendChild(x);
             element.appendChild(y)
     }
