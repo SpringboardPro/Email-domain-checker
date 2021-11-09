@@ -21,6 +21,11 @@ Office.onReady().then(()=> {
                         Office.context.ui.messageParent(JSON.stringify(selected_emails))
                 }
       }
+        
+      cancel = function(){
+          var cancel_message = {messageType: 'cancel'}
+          Office.context.ui.messageParent(JSON.stringify(cancel_message))
+      }
          
         
         //Get form results from dialog box
