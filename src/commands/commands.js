@@ -78,9 +78,12 @@ function sendEmailwithUpdatedRecipients(arg){
   if (message.messageType == 'form_output'){
     setRecipients(message.toRecipients, message.ccRecipients)
     dialog.close()
-    console.log(send_event)
     send_event.completed({allowEvent: false});
+  } else if (message.messageType == 'cancel') {
+      dialog.close()
+      send_event.completed({allowEvent: false});
   }
+  
 }
 
 function setRecipients(toRecipients, ccRecipients) {
