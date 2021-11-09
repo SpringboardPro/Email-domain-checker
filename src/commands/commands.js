@@ -76,7 +76,8 @@ function setRecipients(toRecipients, ccRecipients) {
     // of the composed item. Each time, this example passes a set of
     // names and email addresses to set, and an anonymous 
     // callback function that doesn't take any parameters. 
-    Recipients_to.setAsync(ccRecipients,
+    Recipients_to.setAsync([{"displayName":"Graham Durkin", 
+            "emailAddress":"graham@contoso.com"}],
         function (asyncResult) {
             if (asyncResult.status == Office.AsyncResultStatus.Failed){
                 write(asyncResult.error.message);
@@ -89,7 +90,8 @@ function setRecipients(toRecipients, ccRecipients) {
 
 
     // Set any cc-recipients.
-    Recipients_cc.setAsync(ccRecipients,
+    Recipients_cc.setAsync([{"displayName":"Graham Durkin", 
+            "emailAddress":"graham@contoso.com"}],
         function (asyncResult) {
             if (asyncResult.status == Office.AsyncResultStatus.Failed){
                 write(asyncResult.error.message);
