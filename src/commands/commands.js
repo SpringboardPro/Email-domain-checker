@@ -141,6 +141,7 @@ function getRecipients(result){
 //gets emails using Outlook API and formats and returns in an array
 function processEmails(result){
   var emails = new Array()
+  print(result)
   for (var i = 0; i < result.length; i++) {
     var Email = result[i].emailAddress
     emails.push(Email)
