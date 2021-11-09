@@ -59,6 +59,7 @@ function sendEmailwithUpdatedRecipients(arg){
   var message = JSON.parse(arg.message)
   if (message.messageType == 'form_output'){
     setRecipients(message.toRecipients, message.ccRecipients)
+    dialog.close()
   }
 }
 
