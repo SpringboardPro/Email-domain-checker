@@ -8,10 +8,14 @@ Office.onReady().then(()=> {
                 Office.EventType.DialogParentMessageReceived,
                 createEmailCheckBoxList);     
        
+      get_form_values = function(){
+        
       
+      }
          
         
         //Get form results from dialog box
+        /*
         const form = document.querySelector('form');
         form.addEventListener('submit', e => {
                 e.preventDefault();
@@ -20,6 +24,7 @@ Office.onReady().then(()=> {
                     .join(',');
                 console.log(`${values}`);
                 });
+                */
         
         
     });
