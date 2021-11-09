@@ -12,18 +12,18 @@ Office.onReady().then(()=> {
                 const toForm = document.querySelector('toEmailList');
                 toForm.addEventListener('submit', e => {
                         e.preventDefault();
-                          const values = Array.from(document.querySelectorAll('input[type=checkbox]:checked'))
+                          const toValues = Array.from(document.querySelectorAll('input[type=checkbox]:checked'))
                             .map(item => item.value)
                             .join(',');
-                        console.log(`${values}`);
+                        console.log(`${toValues}`);
                 });
                 const ccForm = document.querySelector('ccEmailList');
                 ccForm.addEventListener('submit', e => {
                         e.preventDefault();
-                          const values = Array.from(document.querySelectorAll('input[type=checkbox]:checked'))
+                          const ccValues = Array.from(document.querySelectorAll('input[type=checkbox]:checked'))
                             .map(item => item.value)
                             .join(',');
-                        console.log(`${values}`);
+                        console.log(`${ccValues}`);
                 });
       
       }
