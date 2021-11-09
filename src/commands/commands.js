@@ -52,8 +52,53 @@ function sendEmailsToDialog(arg){
 
 function sendEmailwithUpdatedRecipients(arg){
   console.log(arg.message)
+  setRecipients(arg.message.toRecipients, arg.message.ccRecipients)
 }
 
+function setRecipients(toRecipients, ccRecipients) {
+    // Local objects to point to recipients of either
+    // the appointment or message that is being composed.
+    // bccRecipients applies to only messages, not appointments.
+    var Recipients_to, Recipients_cc;
+
+    // Verify if the composed item is an appointment or message.
+    if (item.itemType == Office.MailboxEnums.ItemType.Appointment) {
+        Recipients_to = item.requiredAttendees;
+        Recipients_cc = item.optionalAttendees;
+    }
+    else {
+        Recipients_to = item.to;
+        Recipients_cc = item.cc;
+    }
+    
+    // Use asynchronous method setAsync to set each type of recipients
+    // of the composed item. Each time, this example passes a set of
+    // names and email addresses to set, and an anonymous 
+    // callback function that doesn't take any parameters. 
+    Recipients_to.setAsync(ccRecipients,
+        function (asyncResult) {
+            if (asyncResult.status == Office.AsyncResultStatus.Failed){
+                write(asyncResult.error.message);
+            }
+            else {
+                // Async call to set to-recipients of the item completed.
+
+            }    
+    }); // End to setAsync.
+
+
+    // Set any cc-recipients.
+    Recipients_cc.setAsync(ccRecipients,
+        function (asyncResult) {
+            if (asyncResult.status == Office.AsyncResultStatus.Failed){
+                write(asyncResult.error.message);
+            }
+            else {
+                // Async call to set cc-recipients of the item completed.
+            }
+    }); // End cc setAsync.
+    }
+}
 
 function getToEmails() {
   return new Promise(function (resolve, reject) {
