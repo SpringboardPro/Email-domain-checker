@@ -43,12 +43,16 @@ function openDialog(event) {
           dialog = asyncResult.value;
           //Once dialog box has sent message to confirm it is ready. Send dialog box the recipient emails
           dialog.addEventHandler(Office.EventType.DialogMessageReceived, sendEmailsToDialog);
+          dialog.addEventHandler(Office.EventType.DialogEventReceived, dialogClosed);
         });
     }
   })
 
 };
 
+function dialogClosed(){
+  send_event.completed({allowEvent: false})
+}
 
 function sendEmailsToDialog(arg){
   if (JSON.parse(arg.message).messageType == 'initialise') {
