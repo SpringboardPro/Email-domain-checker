@@ -28,7 +28,9 @@ Office.onReady().then(()=> {
 function createEmailCheckBoxList(arg){
         
     to_recipients = arg.toRecipients
+    console.log(to_recipients)
     cc_recipients = arg.ccRecipients
+    console.log(cc_recipients)
     
     if (to_recipients.length > 0){
         for (let i = 0; i < to_recipients.length; i++) { 
