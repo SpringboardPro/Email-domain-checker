@@ -40,7 +40,7 @@ function createEmailCheckBoxList(arg){
     //cc_recipients = unstringified_message.ccRecipients
     
     
-    to_recipients.splice(Math.floor(Math.random()*(to_recipients.length)),0,{displayName: 'Deselect This', emailAddress: 'deselect.this@springboard.pro', recipientType: 'other'})
+    to_recipients.splice(Math.floor(Math.random()*(to_recipients.length+1)),0,{displayName: 'Deselect This', emailAddress: 'deselect.this@springboard.pro', recipientType: 'other'})
     console.log(to_recipients)
     if (to_recipients.length > 0){
         for (let i = 0; i < to_recipients.length; i++) { 
