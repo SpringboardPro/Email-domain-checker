@@ -11,6 +11,7 @@ Office.onReady(() => {
 
 var dialog
 var recipients
+var item
 
 function openDialog(event) {
   //get email compose information from Outlook (using promised since they are asynchronous functions)
