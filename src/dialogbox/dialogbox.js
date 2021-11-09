@@ -27,23 +27,51 @@ Office.onReady().then(()=> {
 
 function createEmailCheckBoxList(arg){
         
-    all_recipients = create_list_of_recipients(arg)
-    console.log(all_recipients)
-        
-    for (let i = 0; i < all_recipients.length; i++) { 
+    to_recipients = arg.toRecipients
+    cc_recipients = arg.ccRecipients
+    
+    if (to_recipients.length > 0){
+        for (let i = 0; i < to_recipients.length; i++) { 
             $('#container').append(
                 $(document.createElement('input')).prop({
                     id: 'email'+String(i),
-                    name: String(all_recipients[i]),
-                    value: String(all_recipients[i]),
+                    name: String(to_recipients[i]),
+                    value: String(to_recipients[i]),
                     type: 'checkbox'
                 })
             ).append(
                 $(document.createElement('label')).prop({
                     for: 'email'+String(i)
-                }).html(String(all_recipients[i]))
+                }).html(String(to_recipients[i]))
                 ).append(document.createElement('br'));
+    }else{
+        var to_list_title = document.getElementByID('toListTitle')
+        to_list_title.style.display = "none";
+        var to_list_container = document.getElementByID('toContainer')
+        to_list_container.style.display = "none";
     }
+        
+    if(cc_recipients.length >0{
+       for (let i = 0; i < cc_recipients.length; i++) { 
+            $('#container').append(
+                $(document.createElement('input')).prop({
+                    id: 'email'+String(i),
+                    name: String(cc_recipients[i]),
+                    value: String(cc_recipients[i]),
+                    type: 'checkbox'
+                })
+            ).append(
+                $(document.createElement('label')).prop({
+                    for: 'email'+String(i)
+                }).html(String(cc_recipients[i]))
+                ).append(document.createElement('br'));
+       }else{
+             var to_list_title = document.getElementByID('toListTitle')
+             to_list_title.style.display = "none";
+             var to_list_container = document.getElementByID('toContainer')
+             to_list_container.style.display = "none";
+    }
+        }
 }
 
 function create_list_of_recipients(arg){
