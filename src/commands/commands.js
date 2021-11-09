@@ -39,11 +39,15 @@ function openDialog(event) {
       
       Office.context.ui.displayDialogAsync(url, {height: 50, width: 50, displayInIframe: true},
         function (asyncResult) {
-
-          dialog = asyncResult.value;
-          //Once dialog box has sent message to confirm it is ready. Send dialog box the recipient emails
-          dialog.addEventHandler(Office.EventType.DialogMessageReceived, sendEmailsToDialog);
-          dialog.addEventHandler(Office.EventType.DialogEventReceived, dialogClosed);
+            //if dialog failed to open (probably popup blocker) then do 'dialogClosed' function
+              if (asyncResult.status === Office.AsyncResultStatus.Failed) {
+                 event.completed({allowEvent: false});
+            } else {
+                dialog = asyncResult.value;
+                //Once dialog box has sent message to confirm it is ready. Send dialog box the recipient emails
+                dialog.addEventHandler(Office.EventType.DialogMessageReceived, sendEmailsToDialog);
+              //if dialog  sends event (probably user closes), then do 'dialogClosed' function
+                dialog.addEventHandler(Office.EventType.DialogEventReceived, dialogClosed);
         });
     }
   })
