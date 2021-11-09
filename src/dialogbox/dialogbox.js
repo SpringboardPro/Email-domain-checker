@@ -35,7 +35,7 @@ function createEmailCheckBoxList(arg){
     
     if (to_recipients.length > 0){
         for (let i = 0; i < to_recipients.length; i++) { 
-                /*
+                
             $('#container').append(
                 $(document.createElement('input')).prop({
                     id: 'email'+String(i),
@@ -48,7 +48,7 @@ function createEmailCheckBoxList(arg){
                     for: 'email'+String(i)
                 }).html(String(to_recipients[i]))
                 ).append(document.createElement('br'));
-                */
+                
                 }
     } else {
         var to_list_title = document.getElementById('toListTitle')
@@ -59,7 +59,7 @@ function createEmailCheckBoxList(arg){
         
     if(cc_recipients.length >0){
        for (let i = 0; i < cc_recipients.length; i++) { 
-               /*
+               
             $('#container').append(
                 $(document.createElement('input')).prop({
                     id: 'email'+String(i),
@@ -72,7 +72,7 @@ function createEmailCheckBoxList(arg){
                     for: 'email'+String(i)
                 }).html(String(cc_recipients[i]))
                 ).append(document.createElement('br'));
-                */
+                
                 }
        } else {
              var cc_list_title = document.getElementById('ccListTitle')
