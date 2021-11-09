@@ -18,11 +18,11 @@ var send_event
 function openDialog(event) {
   //get email compose information from Outlook (using promised since they are asynchronous functions)
   var promise1 = getToEmails();
+  console.log(promise1)
   var promise2 = getCCEmails();
   var promise3 = Promise.all([promise1, promise2]).then(function(result){
     all_recipient_data = result
     recipients = getRecipients(result)
-    console.log(recipients)
     return recipients
   })
 
