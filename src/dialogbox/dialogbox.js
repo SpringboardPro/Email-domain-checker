@@ -34,7 +34,7 @@ function createEmailCheckBoxList(arg){
             var x = document.createElement("INPUT");
             x.setAttribute("type", "checkbox");
             x.setAttribute("id", "email"+String(i))
-            x.setAttribute("value", "email"+String(i))
+            x.setAttribute("value", "emailINPUT"+String(i))
 
             var y = document.createElement("LABEL");
             y.setAttribute("for", "email"+String(i))    
@@ -44,7 +44,7 @@ function createEmailCheckBoxList(arg){
             if (i == 0){
                var element = document.getElementById("dummyElement");
             } else{
-                var element = document.getElementById("email"+String(i-1));
+                var element = document.getElementById("emailINPUT"+String(i-1));
             }
             console.log(element)
             element.appendChild(x);
