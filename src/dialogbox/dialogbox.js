@@ -41,9 +41,17 @@ function createEmailCheckBoxList(arg){
             y.innerHTML = all_recipients[i];
 
 
-            const element = document.getElementById("dummyElement");
+            if (i == 0){
+               var element = document.getElementById("dummyElement");
+            } else{
+                var element = document.getElementById("email"+String(i-1));
+            }
             element.appendChild(x);
-            element.appendChild(y)
+            
+            
+            
+
+            //element.appendChild(y)
     }
 }
 
