@@ -52,8 +52,10 @@ function sendEmailsToDialog(arg){
 }
 
 function sendEmailwithUpdatedRecipients(arg){
-  console.log(arg.message)
-  setRecipients(arg.message.toRecipients, arg.message.ccRecipients)
+  var message = JSON.parse(arg.message)
+  if (message.messageType == 'form_output'){
+    setRecipients(message.toRecipients, message.ccRecipients)
+  }
 }
 
 function setRecipients(toRecipients, ccRecipients) {
