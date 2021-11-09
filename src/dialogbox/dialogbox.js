@@ -71,7 +71,7 @@ function createEmailCheckBoxList(arg){
              var to_list_container = document.getElementByID('toContainer')
              to_list_container.style.display = "none";
     }
-        }
+        
 }
 
         
