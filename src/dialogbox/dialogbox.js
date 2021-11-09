@@ -18,8 +18,8 @@ Office.onReady().then(()=> {
                               toCheckedBoxes.push(toValues[i])
                         }
                 }
-                console.log(toCheckedBoxes);
-                /*
+                console.log(toValues)
+              /*
                 //const ccForm = document.querySelector('ccEmailList');
                 const ccValues = Array.from(document.querySelector('ccCheckBox').checked).map(item => item.value).join(',');
                 console.log(`${ccValues}`);
