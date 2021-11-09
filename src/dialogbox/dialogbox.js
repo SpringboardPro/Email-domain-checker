@@ -10,20 +10,12 @@ Office.onReady().then(()=> {
        
       get_form_values = function(){
                 const toForm = document.querySelector('toEmailList');
-                toForm.addEventListener('submit', e => {
-                        e.preventDefault();
-                          const toValues = Array.from(document.querySelectorAll('input[type=checkbox]:checked'))
-                            .map(item => item.value)
-                            .join(',');
-                        console.log(`${toValues}`);
+                const toValues = Array.from(document.querySelectorAll('input[type=checkbox]:checked')).map(item => item.value).join(',');
+                console.log(`${toValues}`);
                 });
                 const ccForm = document.querySelector('ccEmailList');
-                ccForm.addEventListener('submit', e => {
-                        e.preventDefault();
-                          const ccValues = Array.from(document.querySelectorAll('input[type=checkbox]:checked'))
-                            .map(item => item.value)
-                            .join(',');
-                        console.log(`${ccValues}`);
+                const ccValues = Array.from(document.querySelectorAll('input[type=checkbox]:checked')).map(item => item.value).join(',');
+                console.log(`${ccValues}`);
                 });
       
       }
