@@ -12,13 +12,13 @@ Office.onReady().then(()=> {
                 //const toForm = document.querySelector('toEmailList');
                // const toValues = Array.from(document.querySelector('toCheckBox').checked).map(item => item.value).join(',');
                 var toCheckedBoxes = []
-                var toValues = document.querySelectorAll(".toCheckBox.input[type='checkbox']:checked")
+                var toValues = document.querySelectorAll(".toCheckBox")
                 for (let i = 0; i < toValues.length; i++) {
                         if (toValues[i].checked) {
                               toCheckedBoxes.push(toValues[i])
                         }
                 }
-                console.log(toValues)
+                console.log(toCheckedBoxes)
               /*
                 //const ccForm = document.querySelector('ccEmailList');
                 const ccValues = Array.from(document.querySelector('ccCheckBox').checked).map(item => item.value).join(',');
