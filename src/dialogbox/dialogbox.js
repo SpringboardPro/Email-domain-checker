@@ -46,6 +46,7 @@ function createEmailCheckBoxList(arg){
                 }).html(String(to_recipients[i]))
                 ).append(document.createElement('br'));
                 */
+                }
     } else {
         var to_list_title = document.getElementByID('toListTitle')
         to_list_title.style.display = "none";
@@ -69,6 +70,7 @@ function createEmailCheckBoxList(arg){
                 }).html(String(cc_recipients[i]))
                 ).append(document.createElement('br'));
                 */
+                }
        } else {
              var to_list_title = document.getElementByID('toListTitle')
              to_list_title.style.display = "none";
