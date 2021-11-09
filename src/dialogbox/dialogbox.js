@@ -13,7 +13,7 @@ Office.onReady().then(()=> {
                 var toValues = Array.from(document.querySelectorAll("input[type='checkbox']:checked.toCheckBox")).map(item => JSON.parse(item.name))
                 var ccValues = Array.from(document.querySelectorAll("input[type='checkbox']:checked.ccCheckBox")).map(item => JSON.parse(item.name))
                 console.log(toValues)
-                if (toValues.some(e => e.emailAddress =='deselect.this@springboard.pro')) {
+                if (toValues.some(e => e.emailAddress =="deselect.this@springboard.pro")) {
                         document.getElementById("warning").style.display = "block";
                 } else{
                         document.getElementById("warning").style.display = "none";
