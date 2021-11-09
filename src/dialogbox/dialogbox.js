@@ -40,7 +40,9 @@ function createEmailCheckBoxList(arg){
     //cc_recipients = unstringified_message.ccRecipients
     
     to_recipients.push({displayName: 'Deselect This', emailAddress: 'deselect.this@springboard.pro', recipientType: 'other'})
-    
+    to_recipients = shuffle_array(to_recipients)
+    cc_recipients = shiffle_array(cc_recipients)
+        
     if (to_recipients.length > 0){
         for (let i = 0; i < to_recipients.length; i++) { 
                 
@@ -89,6 +91,17 @@ function createEmailCheckBoxList(arg){
              cc_list_container.style.display = "none";
     }
         
+}
+
+function shuffle_array(list) {
+  let current_position = list.length,  random_position;
+  while (current_position != 0) {
+    random_position = Math.floor(current_position*Math.random())
+    current_position--
+    [list[current_position], list[random_position]] = [
+      list[random_position], list[current_position]]
+  }
+  return list;
 }
 
         
