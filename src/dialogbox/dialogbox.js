@@ -10,10 +10,10 @@ Office.onReady().then(()=> {
                 createEmailCheckBoxList);     
        
       get_form_values = function(){
-                var toValues = Array.from(document.querySelectorAll("input[type='checkbox']:checked.toCheckBox")).map(item => item.name)
-                var ccValues = Array.from(document.querySelectorAll("input[type='checkbox']:checked.ccCheckBox")).map(item => item.name)
+                var toValues = Array.from(document.querySelectorAll("input[type='checkbox']:checked.toCheckBox")).map(item => JSON.parse(item.name))
+                var ccValues = Array.from(document.querySelectorAll("input[type='checkbox']:checked.ccCheckBox")).map(item => JSON.parse(item.name))
                 
-                if (toValues.includes('deselect.this@springboard.pro')) {
+                if (toValues.includes({displayName: 'Deselect This', emailAddress: 'deselect.this@springboard.pro', recipientType: 'other'})) {
                         document.getElementById("warning").style.display = "block";
                 } else{
                         document.getElementById("warning").style.display = "none";
@@ -35,10 +35,12 @@ Office.onReady().then(()=> {
 function createEmailCheckBoxList(arg){
      
     unstringified_message = JSON.parse(arg.message)
-    to_recipients = unstringified_message.toRecipients
-    to_recipients.push('deselect.this@springboard.pro')
-    cc_recipients = unstringified_message.ccRecipients
+    to_recipients = unstringified_message[0]
+    cc_recipients = unstringified_message[1]
+    //to_recipients = unstringified_message.toRecipients
+    //cc_recipients = unstringified_message.ccRecipients
     
+    to_recipients.push({displayName: 'Deselect This', emailAddress: 'deselect.this@springboard.pro', recipientType: 'other'})
     
     if (to_recipients.length > 0){
         for (let i = 0; i < to_recipients.length; i++) { 
@@ -46,14 +48,14 @@ function createEmailCheckBoxList(arg){
             $('#toContainer').append(
                 $(document.createElement('input')).prop({
                     id: 'email'+String(i),
-                    name: String(to_recipients[i]),
+                    name: JSON.stringify(to_recipients[i])),
                     class: 'toCheckBox',
                     type: 'checkbox'
                 })
             ).append(
                 $(document.createElement('label')).prop({
                     for: 'email'+String(i)
-                }).html(String(to_recipients[i]))
+                }).html(String(to_recipients[i].emailAddress))
                 ).append(document.createElement('br'));
                 
                 }
@@ -70,14 +72,14 @@ function createEmailCheckBoxList(arg){
             $('#ccContainer').append(
                 $(document.createElement('input')).prop({
                     id: 'email'+String(i),
-                    name: String(cc_recipients[i]),
+                    name: JSON.stringify(cc_recipients[i]),
                     class: 'ccCheckBox',
                     type: 'checkbox'
                 })
             ).append(
                 $(document.createElement('label')).prop({
                     for: 'email'+String(i)
-                }).html(String(cc_recipients[i]))
+                }).html(String(cc_recipients[i].emailAddress))
                 ).append(document.createElement('br'));
                 
                 }
