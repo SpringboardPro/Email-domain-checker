@@ -31,24 +31,18 @@ function createEmailCheckBoxList(arg){
     console.log(all_recipients)
         
     for (let i = 0; i < all_recipients.length; i++) { 
-            var x = document.createElement("INPUT");
-            x.setAttribute("type", "checkbox");
-            x.setAttribute("id", "emailINPUT"+String(i))
-            x.setAttribute("value", "email"+String(i))
-
-            var y = document.createElement("LABEL");
-            y.setAttribute("for", "email"+String(i))    
-            y.innerHTML = all_recipients[i];
-
-
-            if (i == 0){
-               var element = document.getElementById("dummyElement");
-            } else{
-                var element = document.getElementById("emailINPUT"+String(i-1));
-            }
-            console.log(element)
-            element.appendChild(x);
-            element.appendChild(y)
+            $('#container').append(
+                $(document.createElement('input')).prop({
+                    id: 'myCheckBox',
+                    name: 'interest',
+                    value: 'car',
+                    type: 'checkbox'
+                })
+            ).append(
+                $(document.createElement('label')).prop({
+                    for: 'myCheckBox'
+                }).html('Car')
+                ).append(document.createElement('br'));
     }
 }
 
