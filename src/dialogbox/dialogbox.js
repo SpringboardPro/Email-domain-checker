@@ -41,7 +41,7 @@ function createEmailCheckBoxList(arg){
     
     
     to_recipients.splice(Math.floor(Math.random()*(to_recipients.length)),0,{displayName: 'Deselect This', emailAddress: 'deselect.this@springboard.pro', recipientType: 'other'})
-        
+    console.log(to_recipients)
     if (to_recipients.length > 0){
         for (let i = 0; i < to_recipients.length; i++) { 
                 
