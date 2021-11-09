@@ -51,7 +51,7 @@ function openDialog(event) {
 
 function sendEmailsToDialog(arg){
   if (JSON.parse(arg.message).messageType == 'initialise') {
-    dialog.messageChild(JSON.stringify(recipients), { targetOrigin: "*" })
+    dialog.messageChild(JSON.stringify(all_recipient_data), { targetOrigin: "*" })
     dialog.addEventHandler(Office.EventType.DialogMessageReceived, sendEmailwithUpdatedRecipients);}
 }
 
