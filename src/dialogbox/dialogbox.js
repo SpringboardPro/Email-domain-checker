@@ -15,7 +15,7 @@ Office.onReady().then(()=> {
                 if (toValues.includes('deselect.this@springboard.pro')) {
                         document.getElementById("warning").style.display = "block";
                 } else{
-                        document.getElementById("warning").style.display = "block";
+                        document.getElementById("warning").style.display = "none";
                         console.log('SEND IT')
                 }
       }
