@@ -22,6 +22,7 @@ function openDialog(event) {
   var promise3 = Promise.all([promise1, promise2]).then(function(result){
     all_recipient_data = result
     recipients = getRecipients(result)
+    print(recipients)
     return recipients
   })
 
