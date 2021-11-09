@@ -1,5 +1,6 @@
 Office.onReady().then(()=> {
-        Office.context.ui.messageParent("Dialog is ready")
+        
+        Office.context.ui.messageParent(JSON.stringify({messageType:'initialise', message: "Dialog is ready"})
         //OFFICE MIGHT NOT BE READY BY THE TIME IT TRIES TO SEND INFORMATION TO THE DIALOG- GET DIALOG TO SEND BACK FIRST THAT IT IS READY THEN USE meesageChild
           
         
@@ -17,7 +18,7 @@ Office.onReady().then(()=> {
                 } else{
                         document.getElementById("warning").style.display = "none";
                         console.log('SEND IT')
-                        let selected_emails = {toRecipients: toValues, ccRecipients: ccValues}
+                        let selected_emails = {messageType: 'form_output', toRecipients: toValues, ccRecipients: ccValues}
                         Office.context.ui.messageParent(JSON.stringify(selected_emails))
                 }
       }
