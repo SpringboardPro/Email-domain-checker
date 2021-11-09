@@ -61,7 +61,7 @@ function setRecipients(toRecipients, ccRecipients) {
     // the appointment or message that is being composed.
     // bccRecipients applies to only messages, not appointments.
     var Recipients_to, Recipients_cc;
-
+    item = Office.context.mailbox.item;
     // Verify if the composed item is an appointment or message.
     if (item.itemType == Office.MailboxEnums.ItemType.Appointment) {
         Recipients_to = item.requiredAttendees;
