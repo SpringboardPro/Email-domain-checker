@@ -93,38 +93,3 @@ label {
 	text-align: center;
 }
 
-@media (min-width: 800px) {
-	.submit_button{
-	     display:inline;
-	     width: 47%;
-	}
-
-	#cancel_button{
-		margin-left:2.5%;
-	}
-	#send_button{
-		margin-right:2.5%;
-	}
-	#ccEmailList{
-		margin-bottom:15px;
-	}
-}
-
-@media (max-width: 550px) {
-	label{
-		font-size: 15px;
-	}
-}
-
-@media (max-width: 400px) {
-	label{
-		font-size: 12px;
-	}
-
-}
-@media (max-width: 200px) {
-	label{
-		font-size: 10px;
-	}
-
-}
