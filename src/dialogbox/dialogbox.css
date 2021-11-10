@@ -1,1 +1,102 @@
-/*hi*/
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;600&display=swap');
+
+html, body {
+    height: 100%;
+}
+
+#wrapper {
+	width: 75%;
+	margin: auto;
+}
+
+header {
+	background-color: #65A443;
+	padding: 1% 10%;
+}
+
+h1 {
+	font-family: 'Nunito', Calibri, sans-serif;
+	font-weight: 600;
+	font-size: 15px;
+	color: white;
+	display: block;
+
+}
+
+
+p {
+	font-family: 'Nunito', Calibri, sans-serif;
+	font-weight: 200;
+	font-size: 20px;
+	color: #65A443;
+	background-color: white;
+	padding-right:10px;	
+}
+
+label {
+	font-family: 'Nunito', Calibri, sans-serif;
+	font-weight: 300;
+	font-size: 20px;
+	padding-left: 10px
+}
+
+.submit_button{
+	font-family: 'Nunito', Calibri, sans-serif;
+	font-weight: 600;
+	font-size: 15px;
+	color: #65A443;
+	background-color: #F2F2F2;
+	display: block;
+	padding: 7px;
+	width: 100%;
+	border-style: solid;
+	border-color: white;
+	border-width: 0px;
+	border-radius: 4px;
+}
+
+.submit_button:hover{
+	background-color: #D9D9D9;
+}
+
+.submit_button:active{
+	background-color: #BFBFBF;
+}
+
+#ccEmailList{
+	margin-top: 30px;
+	margin-bottom: 35px;
+}
+
+#send_button {
+	margin-top: 20px
+}
+
+#cancel_button {
+	margin: 15px 0px;
+}
+
+#warning {
+	display:block;
+	color:#C00000;
+	font-weight: 600;
+	width:100%;
+	text-align: center;
+}
+
+@media (min-width: 800px) {
+	.submit_button{
+	     display:inline;
+	     width: 47%;
+	}
+
+	#cancel_button{
+		margin-left:2.5%;
+	}
+	#send_button{
+		margin-right:2.5%;
+	}
+	#ccEmailList{
+		margin-bottom:15px;
+	}
+}
