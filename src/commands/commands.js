@@ -69,7 +69,7 @@ function openDialog(event) {
               //if dialog  sends event (probably user closes), then do 'dialogClosed' function
                 dialog.addEventHandler(Office.EventType.DialogEventReceived, dialogClosed);
                 console.log('here')
-                $(window).bind('resize', function(e){dialog.close()});
+
                 
       };
     })
