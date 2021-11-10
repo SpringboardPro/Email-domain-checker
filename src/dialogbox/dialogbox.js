@@ -93,6 +93,8 @@ function createEmailCheckBoxList(arg){
              cc_list_title.style.display = "none";
              var cc_list_container = document.getElementById('ccContainer')
              cc_list_container.style.display = "none";
+             var cc_email_list = document.getElementById('ccEmailList')
+             cc_email_list.style.display = "none"
     }
         
 }
