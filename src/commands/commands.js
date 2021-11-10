@@ -53,6 +53,7 @@ function openDialog(event) {
         function (asyncResult) {
             //if dialog failed to open (probably popup blocker) then do 'dialogClosed' function
               if (asyncResult.status === Office.AsyncResultStatus.Failed) {
+                 Office.context.ui.closeContainer()
                  console.log(asyncResult.error.message)
                  console.log(asyncResult.value)
                  if (asyncResult.error.code == 12007){
