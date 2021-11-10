@@ -64,6 +64,9 @@ function openDialog(event) {
 };
 
 function dialogClosed(){
+  try {
+    dialog.close()
+  }
   send_event.completed({allowEvent: false})
 }
 
