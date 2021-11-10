@@ -9,11 +9,7 @@ Office.onReady(() => {
   // If needed, Office.js is ready to be called
 });
 
-try{
-  dialog.close() 
-} catch{
-console.log('First run')
-}
+
 var dialog
 console.log('at the beginning')
 var recipients
