@@ -31,14 +31,14 @@ p {
 	color: #65A443;
 	background-color: white;
 	padding-right:10px;	
-	margin-bottom:10px;
 }
 
 label {
 	font-family: 'Nunito', Calibri, sans-serif;
 	font-weight: 300;
 	font-size: 20px;
-	padding-left: 10px
+	padding-left: 10px;
+	margin-bottom:10px;
 }
 
 .submit_button{
