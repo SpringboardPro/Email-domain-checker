@@ -30,7 +30,7 @@ p {
 	font-size: 20px;
 	color: #65A443;
 	background-color: white;
-	padding-right:10px;	
+	padding-right: 10px;	
 }
 
 label {
@@ -38,7 +38,7 @@ label {
 	font-weight: 300;
 	font-size: 20px;
 	padding-left: 10px;
-	margin-bottom:10px;
+	margin-bottom: 10px;
 }
 
 .submit_button{
