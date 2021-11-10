@@ -105,8 +105,8 @@ label {
 	}
 }
 
-@media (min-width: 850px) {
-	p{
+@media (max-width: 850px) {
+	label{
 		font-size: 15px;
 	}
 
