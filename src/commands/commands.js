@@ -62,6 +62,7 @@ function openDialog(event) {
                  event.completed({allowEvent: false});
             } else {
                 dialog = asyncResult.value;
+                console.log(dialog)
                 //Once dialog box has sent message to confirm it is ready. Send dialog box the recipient emails
                 dialog.addEventHandler(Office.EventType.DialogMessageReceived, sendEmailsToDialog);
               //if dialog  sends event (probably user closes), then do 'dialogClosed' function
