@@ -42,10 +42,8 @@ function openDialog(event) {
     send_event = event
     var internal_bool = (check_if_internal(result.toRecipients) && check_if_internal(result.ccRecipients))
     if (internal_bool){
-       console.log('hi')
       event.completed({allowEvent: true});
     } else {
-      console.log('ho')
       //event.completed({allowEvent: false});
       //display dialog box (callback function in dialog is to create event handler in host page to recieve info from dialog page)
       var url ='https://hamish-atkins-sb.github.io/Email-domain-checker/src/dialogbox/dialogbox.html'
@@ -54,6 +52,7 @@ function openDialog(event) {
         function (asyncResult) {
             //if dialog failed to open (probably popup blocker) then do 'dialogClosed' function
               if (asyncResult.status === Office.AsyncResultStatus.Failed) {
+                 dialog.close()
                  event.completed({allowEvent: false});
             } else {
                 dialog = asyncResult.value;
