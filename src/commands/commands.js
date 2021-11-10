@@ -64,7 +64,7 @@ function openDialog(event) {
 };
 
 function dialogClosed(){
-  print('hello')
+  console.log('hello')
   send_event.completed({allowEvent: false})
 }
 
@@ -76,6 +76,7 @@ function sendEmailsToDialog(arg){
 
 function sendEmailwithUpdatedRecipients(arg){
   var message = JSON.parse(arg.message)
+  console.log(message)
   if (message.messageType == 'form_output'){
     setRecipients(message.toRecipients, message.ccRecipients)
     dialog.close()
