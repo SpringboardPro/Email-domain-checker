@@ -19,7 +19,7 @@ function openDialog(event) {
   //get email compose information from Outlook (using promised since they are asynchronous functions)
   
   item = Office.context.mailbox.item;
-  console.log('hi');
+ 
     // Verify if the composed item is an appointment or message.
   if (item.itemType == Office.MailboxEnums.ItemType.Appointment){
     var promise1 = getToEmails_appointment();
@@ -42,8 +42,10 @@ function openDialog(event) {
     send_event = event
     var internal_bool = (check_if_internal(result.toRecipients) && check_if_internal(result.ccRecipients))
     if (internal_bool){
+       console.log('hi')
       event.completed({allowEvent: true});
     } else {
+      console.log('ho')
       //event.completed({allowEvent: false});
       //display dialog box (callback function in dialog is to create event handler in host page to recieve info from dialog page)
       var url ='https://hamish-atkins-sb.github.io/Email-domain-checker/src/dialogbox/dialogbox.html'
