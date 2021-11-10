@@ -70,13 +70,7 @@
               </OfficeTab>
             </ExtensionPoint>
           </DesktopFormFactor>
-          <MobileFormFactor>
-            <FunctionFile resid="Commands.Url"/>
-              <ExtensionPoint xsi:type="Events">
-                <Event Type="ItemSend" FunctionExecution="synchronous" FunctionName="openDialog" />
-              </ExtensionPoint>
 
-          </MobileFormFactor>
         </Host>
       </Hosts>
 
