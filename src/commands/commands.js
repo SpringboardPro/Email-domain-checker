@@ -10,6 +10,7 @@ Office.onReady(() => {
 });
 
 var dialog
+console.log('at the beginning')
 var recipients
 var all_recipient_data
 var item
@@ -47,7 +48,7 @@ function openDialog(event) {
       //event.completed({allowEvent: false});
       //display dialog box (callback function in dialog is to create event handler in host page to recieve info from dialog page)
       var url ='https://hamish-atkins-sb.github.io/Email-domain-checker/src/dialogbox/dialogbox.html'
-      
+      console.log(dialog)
       Office.context.ui.displayDialogAsync(url, {height: 50, width: 50, displayInIframe: true},
         function (asyncResult) {
             //if dialog failed to open (probably popup blocker) then do 'dialogClosed' function
