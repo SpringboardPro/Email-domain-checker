@@ -52,14 +52,14 @@ function createEmailCheckBoxList(arg){
                 
             $('#toContainer').append(
                 $(document.createElement('input')).prop({
-                    id: 'email'+String(i),
+                    id: 'emailTo'+String(i),
                     name: JSON.stringify(to_recipients[i]),
                     class: 'toCheckBox',
                     type: 'checkbox'
                 })
             ).append(
                 $(document.createElement('label')).prop({
-                    for: 'email'+String(i)
+                    for: 'emailTo'+String(i)
                 }).html(String(to_recipients[i].emailAddress))
                 ).append(document.createElement('br'));
                 
@@ -76,14 +76,14 @@ function createEmailCheckBoxList(arg){
                
             $('#ccContainer').append(
                 $(document.createElement('input')).prop({
-                    id: 'email'+String(i),
+                    id: 'emailCc'+String(i),
                     name: JSON.stringify(cc_recipients[i]),
                     class: 'ccCheckBox',
                     type: 'checkbox'
                 })
             ).append(
                 $(document.createElement('label')).prop({
-                    for: 'email'+String(i)
+                    for: 'emailCc'+String(i)
                 }).html(String(cc_recipients[i].emailAddress))
                 ).append(document.createElement('br'));
                 
