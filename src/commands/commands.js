@@ -87,7 +87,7 @@ function sendEmailsToDialog(arg){
 }
 
 function sendEmailwithUpdatedRecipients(arg){
-  window.addEventListener('resize', dialog.close());
+  dialog.addEventListener('resize', dialog.close());
   console.log(arg.message)
   var message = JSON.parse(arg.message)
   if (message.messageType == 'form_output'){
