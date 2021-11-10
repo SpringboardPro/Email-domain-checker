@@ -54,7 +54,7 @@ function openDialog(event) {
               if (asyncResult.status === Office.AsyncResultStatus.Failed) {
                  console.log(asyncResult.error.message)
                  if (asyncResult.error.code == 12007){
-                    dialog.close()
+                    dialog.addEventHandler(Office.EventType.DialogMessageReceived, sendEmailwithUpdatedRecipients);
                  }
                  event.completed({allowEvent: false});
             } else {
