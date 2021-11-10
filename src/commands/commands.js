@@ -53,6 +53,7 @@ function openDialog(event) {
             //if dialog failed to open (probably popup blocker) then do 'dialogClosed' function
               if (asyncResult.status === Office.AsyncResultStatus.Failed) {
                  console.log(asyncResult.error.message)
+                 console.log(asyncResult.value)
                  if (asyncResult.error.code == 12007){
                     dialog.addEventHandler(Office.EventType.DialogMessageReceived, sendEmailwithUpdatedRecipients);
                  }
