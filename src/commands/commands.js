@@ -68,7 +68,7 @@ function openDialog(event) {
                 dialog.addEventHandler(Office.EventType.DialogMessageReceived, sendEmailsToDialog);
               //if dialog  sends event (probably user closes), then do 'dialogClosed' function
                 dialog.addEventHandler(Office.EventType.DialogEventReceived, dialogClosed);
-                window.addEventListener('resize', function(event) {dialog.close()}, true);
+                
       };
     })
   }})
@@ -87,7 +87,7 @@ function sendEmailsToDialog(arg){
 }
 
 function sendEmailwithUpdatedRecipients(arg){
-  console.log('hello3')
+  window.addEventListener('resize', function(event) {dialog.close()}, true);
   console.log(arg.message)
   var message = JSON.parse(arg.message)
   if (message.messageType == 'form_output'){
