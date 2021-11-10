@@ -19,28 +19,28 @@
 </head>
 
 <body>
-  <div id='wrapper'>
+  
     <header>
       <h1>Please confirm the recipients of your email or invite:</h1>
   </header>
+  <div id='wrapper'>
+    <main>
+        <form id="toEmailList">
+          <p id = "toListTitle">To Recipients</p>
+          <div id="toContainer"></div>
 
-  <main>
-      <form id="toEmailList">
-        <p id = "toListTitle">To Recipients</p>
-        <div id="toContainer"></div>
+        </form>
 
-      </form>
-    
-       <form id="ccEmailList">
-        <p id = "ccListTitle">Cc Recipients</p>
-        <div id="ccContainer"></div>
-      </form>
-    
-      <input type="button" value="Send to selected recipients" onclick="get_form_values()" />
-      <input type="button" value="Cancel" onclick="cancel()" />
-    <p id='warning' style='display:none'>Are you sure?</p>
-  </main>
-</div>
+         <form id="ccEmailList">
+          <p id = "ccListTitle">Cc Recipients</p>
+          <div id="ccContainer"></div>
+        </form>
+
+        <input type="button" value="Send to selected recipients" onclick="get_form_values()" />
+        <input type="button" value="Cancel" onclick="cancel()" />
+      <p id='warning' style='display:none'>Are you sure?</p>
+    </main>
+  </div>
 </body>
 
 </html>
