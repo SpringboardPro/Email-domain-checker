@@ -104,3 +104,10 @@ label {
 		margin-bottom:15px;
 	}
 }
+
+@media (min-width: 850px) {
+	p{
+		font-size: 15px;
+	}
+
+}
