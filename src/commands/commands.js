@@ -75,8 +75,8 @@ function sendEmailsToDialog(arg){
 }
 
 function sendEmailwithUpdatedRecipients(arg){
+  console.log(arg.message)
   var message = JSON.parse(arg.message)
-  console.log(message)
   if (message.messageType == 'form_output'){
     setRecipients(message.toRecipients, message.ccRecipients)
     dialog.close()
