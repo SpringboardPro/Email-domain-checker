@@ -19,6 +19,7 @@ function openDialog(event) {
   //get email compose information from Outlook (using promised since they are asynchronous functions)
   
   item = Office.context.mailbox.item;
+  console.log('hi');
     // Verify if the composed item is an appointment or message.
   if (item.itemType == Office.MailboxEnums.ItemType.Appointment){
     var promise1 = getToEmails_appointment();
