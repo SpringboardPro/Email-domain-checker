@@ -69,12 +69,14 @@ function dialogClosed(){
 }
 
 function sendEmailsToDialog(arg){
+  console.log('hello2')
   if (JSON.parse(arg.message).messageType == 'initialise') {
     dialog.messageChild(JSON.stringify(all_recipient_data), { targetOrigin: "*" })
     dialog.addEventHandler(Office.EventType.DialogMessageReceived, sendEmailwithUpdatedRecipients);}
 }
 
 function sendEmailwithUpdatedRecipients(arg){
+  console.log('hello3')
   console.log(arg.message)
   var message = JSON.parse(arg.message)
   if (message.messageType == 'form_output'){
