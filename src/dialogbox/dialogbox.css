@@ -38,6 +38,9 @@ label {
 	font-weight: 300;
 	font-size: 20px;
 	padding-left: 10px;
+}
+
+.toCheckBox, .ccCheckBox {
 	margin-bottom: 10px;
 }
 
