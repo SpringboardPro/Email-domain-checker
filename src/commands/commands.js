@@ -66,7 +66,9 @@ function openDialog(event) {
 function dialogClosed(){
   try {
     dialog.close()
-  }
+  } catch(err){
+    console.log('Dialog already closed')
+  }  
   send_event.completed({allowEvent: false})
 }
 
