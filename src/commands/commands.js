@@ -1,5 +1,5 @@
 try{
-    var elements = document.getElementsByClassName('AddInIframe');
+    var elements = document.getElementsByClassName('AddinIframe');
     while(elements.length > 0){
         elements[0].parentNode.removeChild(elements[0]);
     }
