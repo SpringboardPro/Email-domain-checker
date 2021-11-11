@@ -88,8 +88,13 @@ function sendEmailwithUpdatedRecipients(arg){
   var message = JSON.parse(arg.message)
   if (message.messageType == 'form_output'){
     setRecipients(message.toRecipients, message.ccRecipients)
+    if ((message.toRecipients.length + message.ccRecipients.length) == 0){
+       send_event.completed({allowEvent: false});
+    } else{
+      send_event.completed({allowEvent: true});
+    }
     dialog.close()
-    send_event.completed({allowEvent: true});
+    
   } else if (message.messageType == 'cancel') {
       dialog.close()
       send_event.completed({allowEvent: false});
