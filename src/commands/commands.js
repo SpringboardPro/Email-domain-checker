@@ -5,7 +5,7 @@ var all_recipient_data
 var item
 var send_event
 
-//window.addEventListener('resize', console.log('resized'));
+window.addEventListener("beforeunload", function(event) {console.log('unloading'});
 
 Office.onReady(() => {
   // If needed, Office.js is ready to be called
@@ -58,7 +58,7 @@ function openDialog(event) {
             } else {
                 dialog = asyncResult.value;
                 console.log(dialog)
-                window.addEventListener('resize', console.log('resized'));
+                window.addEventListener("beforeunload", function(event) {console.log('unloading2'});
                 //Once dialog box has sent message to confirm it is ready. Send dialog box the recipient emails
                 dialog.addEventHandler(Office.EventType.DialogMessageReceived, sendEmailsToDialog);
               //if dialog  sends event (probably user closes), then do 'dialogClosed' function
