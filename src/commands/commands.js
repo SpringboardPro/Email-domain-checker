@@ -11,7 +11,7 @@ Office.onReady(() => {
 
 
 var dialog
-console.log('at the beginning')
+console.log('at the beginning2')
 var recipients
 var all_recipient_data
 var item
