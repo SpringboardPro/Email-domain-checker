@@ -87,10 +87,10 @@ function sendEmailwithUpdatedRecipients(arg){
   $(window).bind('resize', function(e){dialog.close()});
   var message = JSON.parse(arg.message)
   if (message.messageType == 'form_output'){
-    setRecipients(message.toRecipients, message.ccRecipients)
     if ((message.toRecipients.length + message.ccRecipients.length) == 0){
        send_event.completed({allowEvent: false});
     } else{
+      setRecipients(message.toRecipients, message.ccRecipients)
       send_event.completed({allowEvent: true});
     }
     dialog.close()
