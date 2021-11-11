@@ -1,11 +1,11 @@
 var dialog
-console.log('at the beginning3')
+console.log('at the beginning4')
 var recipients
 var all_recipient_data
 var item
 var send_event
 
-window.addEventListener('resize', console.log('resized'));
+//window.addEventListener('resize', console.log('resized'));
 
 Office.onReady(() => {
   // If needed, Office.js is ready to be called
