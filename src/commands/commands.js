@@ -1,21 +1,13 @@
-/*
- * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.
- * See LICENSE in the project root for license information.
- */
-
-/* global global, Office, self, window */
-
-Office.onReady(() => {
-  // If needed, Office.js is ready to be called
-});
-
-
 var dialog
 console.log('at the beginning2')
 var recipients
 var all_recipient_data
 var item
 var send_event
+
+Office.onReady(() => {
+  // If needed, Office.js is ready to be called
+});
 
 function openDialog(event) {
   //get email compose information from Outlook (using promised since they are asynchronous functions)
