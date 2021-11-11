@@ -6,6 +6,7 @@ try{
 }
 } catch (error){
   console.log('no iframe')
+  console.log('error')
 }
 
 var dialog
