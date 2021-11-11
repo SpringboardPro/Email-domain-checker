@@ -1,6 +1,9 @@
 try{
-  var myobj = document.getElementById("AddinIframe");
-  myobj.remove();
+    var elements = document.getElementsByClassName('AddInIframe');
+    while(elements.length > 0){
+        elements[0].parentNode.removeChild(elements[0]);
+    }
+}
 } catch (error){
   console.log('no iframe')
 }
