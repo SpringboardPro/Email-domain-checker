@@ -1,3 +1,10 @@
+try{
+  var myobj = document.getElementById("AddinIframe");
+  myobj.remove();
+} catch (error){
+  console.log('no iframe')
+}
+
 var dialog
 console.log('at the beginning4')
 var recipients
