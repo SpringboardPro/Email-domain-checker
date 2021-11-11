@@ -22,7 +22,7 @@
         <SourceLocation DefaultValue="https://hamish-atkins-sb.github.io/Email-domain-checker/src/commands/commands.html"/>
         
         
-        <RequestedHeight>600</RequestedHeight>
+        <RequestedHeight>250</RequestedHeight>
       </DesktopSettings>
     </Form>
   </FormSettings>
