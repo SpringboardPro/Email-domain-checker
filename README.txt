@@ -1,0 +1,1 @@
+Only current Springboard employees are licensed to use the software.
