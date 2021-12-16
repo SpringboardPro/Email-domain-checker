@@ -1,3 +1,5 @@
+/* © 2021 Springboard Pro Ltd. */
+
 Office.onReady().then(()=> {
         
         Office.context.ui.messageParent(JSON.stringify({messageType:'initialise', message: "Dialog is ready"}))
