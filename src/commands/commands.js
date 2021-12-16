@@ -1,3 +1,5 @@
+/* © 2021 Springboard Pro Ltd. */
+
 var dialog
 console.log('at the beginning4')
 var recipients
