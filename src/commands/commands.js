@@ -13,6 +13,10 @@ Office.onReady(() => {
   // If needed, Office.js is ready to be called
 });
 
+/**
+ * Function that is run when the send button is pressed by the user.
+ * @param {object} event - The email send event that is to be controlled.
+ */
 function openDialog(event) {
   //get email compose information from Outlook (using promised since they are asynchronous functions)
   
