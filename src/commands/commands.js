@@ -45,7 +45,7 @@ function openDialog(event) {
       event.completed({allowEvent: true});
     } else {
       //Display dialog box (callback function in dialog is to create event handler in host page to recieve info from dialog page).
-      var url ='https://hamish-atkins-sb.github.io/Email-domain-checker/src/dialogbox/dialogbox.html'
+      var url ='https://springboardpro.github.io/Email-domain-checker/src/dialogbox/dialogbox.html'
       console.log(Office.context.ui)
       Office.context.ui.displayDialogAsync(url, {height: 50, width: 50, displayInIframe: true}, 
         function (asyncResult) {
