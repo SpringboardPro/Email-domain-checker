@@ -3,14 +3,14 @@
 Office.onReady().then(()=> {
         
         Office.context.ui.messageParent(JSON.stringify({messageType:'initialise', message: "Dialog is ready"}))
-        //OFFICE MIGHT NOT BE READY BY THE TIME IT TRIES TO SEND INFORMATION TO THE DIALOG- GET DIALOG TO SEND BACK FIRST THAT IT IS READY THEN USE meesageChild
-          
+        //Office JS in the dialog might not be initiallised by the time the host tries to send the email data so send a confirmation message to confirm it is ready.          
         
-        //Recieve emails from host page
+        //Recieve emails from host page.
         Office.context.ui.addHandlerAsync(
                 Office.EventType.DialogParentMessageReceived,
                 createEmailCheckBoxList);     
-       
+        
+        //Get form results from dialog box.
       get_form_values = function(){
                 var toValues = Array.from(document.querySelectorAll("input[type='checkbox']:checked.toCheckBox")).map(item => JSON.parse(item.name))
                 var ccValues = Array.from(document.querySelectorAll("input[type='checkbox']:checked.ccCheckBox")).map(item => JSON.parse(item.name))
@@ -23,32 +23,31 @@ Office.onReady().then(()=> {
                         Office.context.ui.messageParent(JSON.stringify(selected_emails))
                 }
       }
-        
+        //Send cancel message to host if cancel button is pressed.
       cancel = function(){
           var cancel_message = {messageType: 'cancel'}
           Office.context.ui.messageParent(JSON.stringify(cancel_message))
       }
          
         
-        //Get form results from dialog box
+        
         
 
-                
-        
-        
+  
     });
 
+/**
+ * Function that creates the check box form from the recipients.
+ * @param {object} arg - The message object from the host pages that contains the recipient data.
+ */
 function createEmailCheckBoxList(arg){
-     
     unstringified_message = JSON.parse(arg.message)
     to_recipients = unstringified_message[0]
     cc_recipients = unstringified_message[1]
     //to_recipients = unstringified_message.toRecipients
     //cc_recipients = unstringified_message.ccRecipients
     
-    
     to_recipients.splice(Math.floor(Math.random()*(to_recipients.length+1)),0,{displayName: 'Deselect This', emailAddress: 'deselect.this@springboard.pro', recipientType: 'other'})
-    console.log(to_recipients)
     if (to_recipients.length > 0){
         for (let i = 0; i < to_recipients.length; i++) { 
                 
