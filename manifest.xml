@@ -7,7 +7,7 @@
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="External recipient checker"/>
   <Description DefaultValue="An Outlook add-in which will detect external recipients when the send button is pressed and then ask for confirmation of the intended recipients."/>
-  <IconUrl DefaultValue="https://hamish-atkins-sb.github.io/Email-domain-checker/img/logosmall.png"/>
+  <IconUrl DefaultValue="https://springboardpro.github.io/Email-domain-checker/img/logosmall.png"/>
 
   <Hosts>
     <Host Name="Mailbox"/>
