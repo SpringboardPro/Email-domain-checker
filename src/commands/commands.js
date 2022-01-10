@@ -284,11 +284,12 @@ function check_multiple_external(to_emails, cc_emails){
       external_emails.push(domain)
     }
   }
-  number_external_domains = new Set(external_emails).size;
-  if (number_external_domains > 1){
-    var multi_external_bool = true
-  } else (number_external_domains <= 1){
-    var multi_external_bool = false
+  //number_external_domains = new Set(external_emails).size;
+  number_external_domains = 2
+  if (number_external_domains > 1) {
+    var multi_external_bool = true;
+  } else (number_external_domains <= 1) {
+    var multi_external_bool = false;
   }
   return multi_external_bool
 } 
