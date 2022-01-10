@@ -41,6 +41,7 @@ function openDialog(event) {
     console.log(all_recipient_data)
     send_event = event
     var multiple_external_bool = check_multiple_external(result.toRecipients, result.ccRecipients) 
+    
     if (!multiple_external_bool){
       event.completed({allowEvent: true});
     } else {
@@ -290,4 +291,5 @@ function check_multiple_external(to_emails, cc_emails){
   else (number_external_domains <= 1){
     multi_external_bool = false
   }
+  return multi_external_bool
 } 
