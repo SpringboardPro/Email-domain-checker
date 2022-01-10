@@ -287,8 +287,7 @@ function check_multiple_external(to_emails, cc_emails){
   number_external_domains = new Set(external_emails).size;
   if (number_external_domains > 1){
     multi_external_bool = true
-  }
-  else (number_external_domains <= 1){
+  } else (number_external_domains <= 1){
     multi_external_bool = false
   }
   return multi_external_bool
