@@ -40,8 +40,8 @@ function openDialog(event) {
   promise3.then(function(result){
     console.log(all_recipient_data)
     send_event = event
-    var internal_bool = (check_if_internal(result.toRecipients) && check_if_internal(result.ccRecipients))
-    if (internal_bool){
+    var multiple_external_bool = check_multiple_external(result.toRecipients, result.ccRecipients) 
+    if (!multiple_external_bool){
       event.completed({allowEvent: true});
     } else {
       //Display dialog box (callback function in dialog is to create event handler in host page to recieve info from dialog page).
@@ -273,3 +273,21 @@ function check_if_internal(emails){
   }
   return SendBool;
 }
+
+function check_multiple_external(to_emails, cc_emails){
+  var emails = to_emails.concat(cc_emails)
+  var external_emails = []
+  for (var i = 0; i < emails.length; i++) {
+    var domain = emails.slice(emails[i].indexOf('@'), emails[i].length)
+    if (emails.slice != '@springboard.pro'){
+      external_emails.push(domain)
+    }
+  }
+  number_external_domains = new Set(external_emails).size;
+  if (number_external_domains > 1){
+    multi_external_bool = true
+  }
+  else (number_external_domains <= 1){
+    multi_external_bool = false
+  }
+} 
