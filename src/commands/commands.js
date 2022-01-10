@@ -280,7 +280,7 @@ function check_multiple_external(to_emails, cc_emails){
   var external_emails = []
   for (var i = 0; i < emails.length; i++) {
     var domain = emails[i].slice(emails[i].indexOf('@'), emails[i].length)
-    if (emails.slice != '@springboard.pro'){
+    if (domain != '@springboard.pro'){
       external_emails.push(domain)
     }
   }
