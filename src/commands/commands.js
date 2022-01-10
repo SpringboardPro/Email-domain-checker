@@ -284,8 +284,8 @@ function check_multiple_external(to_emails, cc_emails){
       external_emails.push(domain)
     }
   }
-  //number_external_domains = new Set(external_emails).size;
-  var number_external_domains = 2
+  number_external_domains = new Set(external_emails).size;
+  console.log(number_external_domains)
   if (number_external_domains > 1){
     return true
   } else {
