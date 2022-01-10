@@ -40,7 +40,7 @@ function openDialog(event) {
   promise3.then(function(result){
     console.log(all_recipient_data)
     send_event = event
-    var multiple_external_bool = check_multiple_external(result.toRecipients, result.ccRecipients) 
+    var multiple_external_bool = check_multiple_external(result.toRecipients.concat(result.ccRecipients)) 
     
     if (!multiple_external_bool){
       event.completed({allowEvent: true});
@@ -275,8 +275,11 @@ function check_if_internal(emails){
   return SendBool;
 }
 
-function check_multiple_external(to_emails, cc_emails){
-  var emails = to_emails.concat(cc_emails)
+/**
+ * Function that returns a boolean value based on if the number of external emails is larger than 
+ * @param {array} emails - An array containing the emails to be checked.
+ */
+function check_multiple_external(emails){
   var external_emails = []
   for (var i = 0; i < emails.length; i++) {
     var domain = emails[i].slice(emails[i].indexOf('@'), emails[i].length)
