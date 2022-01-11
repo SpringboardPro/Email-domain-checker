@@ -222,15 +222,17 @@ function getCCEmails_appointment () {
  * @param {array} result - An array containing the recipient data.
  */
 function processEmails (result) {
-  let recipientData = result[0].concat(result[1])
-  console.log ('processEmails')
-  console.log (result)
+  let recipientData
+  if (result.length > 1) {
+    recipientData = result[0].concat(result[1])
+  } else {
+    recipientData = result[0]
+  }
   let emails = []
   for (let i = 0; i < recipientData.length; i++) {
-    let Email = result[i].emailAddress
+    let Email = recipientData[i].emailAddress
     emails.push(Email)
   }
-  console.log(emails)
   return emails
 }
 
@@ -239,8 +241,6 @@ function processEmails (result) {
  * @param {array} emails - An array containing the emails to be checked.
  */
 function checkMultipleExternal (emails) {
-  console.log ('checkMultipleExternal')
-  console.log (emails)
   let externalEmails = []
   for (let i = 0; i < emails.length; i++) {
     let domain = emails[i].slice(emails[i].indexOf('@'), emails[i].length)
@@ -248,12 +248,15 @@ function checkMultipleExternal (emails) {
       externalEmails.push(domain)
     }
   }
-  console.log(externalEmails)
   const numberExternalDomains = new Set(externalEmails).size
-  console.log(numberExternalDomains)
   if (numberExternalDomains > 1) {
     return true
   } else {
     return false
   }
 }
+
+
+// Export modeles for unit testing.
+module.exports = processEmails;
+module.exports = checkMultipleExternal;
