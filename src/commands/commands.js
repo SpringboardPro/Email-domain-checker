@@ -233,6 +233,7 @@ function processEmails (result) {
     let Email = recipientData[i].emailAddress
     emails.push(Email)
   }
+  console.log(emails)
   return emails
 }
 
