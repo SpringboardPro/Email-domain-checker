@@ -223,6 +223,8 @@ function getCCEmails_appointment () {
  * @param {array} result - An array containing the 'to' and 'cc' recipient data.
  */
 function getRecipients (result) {
+  console.log ('getRecipients')
+  console.log (result)
   const toRecipients = processEmails(result[0])
   const ccRecipients = processEmails(result[1])
   return { toRecipients, ccRecipients }
@@ -233,6 +235,8 @@ function getRecipients (result) {
  * @param {array} result - An array containing the recipient data.
  */
 function processEmails (result) {
+  console.log ('processEmails')
+  console.log (result)
   let emails = []
   for (let i = 0; i < result.length; i++) {
     let Email = result[i].emailAddress
@@ -246,6 +250,8 @@ function processEmails (result) {
  * @param {array} emails - An array containing the emails to be checked.
  */
 function checkMultipleExternal (emails) {
+  console.log ('checkMultipleExternal')
+  console.log (emails)
   let externalEmails = []
   for (let i = 0; i < emails.length; i++) {
     let domain = emails[i].slice(emails[i].indexOf('@'), emails[i].length)
