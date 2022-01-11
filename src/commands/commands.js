@@ -31,15 +31,14 @@ function openDialog (event) {
 
   const promise3 = Promise.all([promise1, promise2]).then(function (result) {
     allRecipientData = result
-    recipients = getRecipients(result)
+    recipients = result[0].concat(result[1])
     return recipients
   })
 
   //  Check if recipients are only internal or not.
   promise3.then(function (result) {
-    console.log(allRecipientData)
     sendEvent = event
-    const multipleExternalBool = checkMultipleExternal(result.toRecipients.concat(result.ccRecipients))
+    const multipleExternalBool = checkMultipleExternal(processEmails(result))
     if (!multipleExternalBool) {
       event.completed({ allowEvent: true })
     } else {
@@ -216,18 +215,6 @@ function getCCEmails_appointment () {
       reject('Error')
     }
   })
-}
-
-/**
- * Function that takes the two categories of recipient data and stores the emails of each in an object together.
- * @param {array} result - An array containing the 'to' and 'cc' recipient data.
- */
-function getRecipients (result) {
-  console.log ('getRecipients')
-  console.log (result)
-  const toRecipients = processEmails(result[0])
-  const ccRecipients = processEmails(result[1])
-  return { toRecipients, ccRecipients }
 }
 
 /**
