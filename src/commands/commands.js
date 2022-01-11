@@ -32,13 +32,13 @@ function openDialog (event) {
   const promise3 = Promise.all([promise1, promise2]).then(function (result) {
     allRecipientData = result
     recipients = result[0].concat(result[1])
-    return recipients
+    return allRecipientData
   })
 
   //  Check if recipients are only internal or not.
   promise3.then(function (result) {
     sendEvent = event
-    const multipleExternalBool = checkMultipleExternal(processEmails(result))
+    const multipleExternalBool = checkMultipleExternal(processEmails(allRecipientData))
     if (!multipleExternalBool) {
       event.completed({ allowEvent: true })
     } else {
@@ -222,10 +222,11 @@ function getCCEmails_appointment () {
  * @param {array} result - An array containing the recipient data.
  */
 function processEmails (result) {
+  let recipientData = result[0].concat(result[1])
   console.log ('processEmails')
   console.log (result)
   let emails = []
-  for (let i = 0; i < result.length; i++) {
+  for (let i = 0; i < recipientData.length; i++) {
     let Email = result[i].emailAddress
     emails.push(Email)
   }
