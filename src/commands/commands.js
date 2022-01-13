@@ -256,8 +256,3 @@ function checkMultipleExternal (emails) {
     return false
   }
 }
-
-
-// Export modeles for unit testing.
-module.exports = processEmails;
-module.exports = checkMultipleExternal;
