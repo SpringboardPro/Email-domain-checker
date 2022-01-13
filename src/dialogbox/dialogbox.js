@@ -86,7 +86,7 @@ function createEmailCheckBoxList (arg) {
 
 function createDecoyEmail (unstringifiedEmails) {
   const emails = unstringifiedEmails[0].concat(unstringifiedEmails[1])
-  let i = math.floor(Math.random() * (emails.length + 1)
+  let i = math.floor(Math.random() * (emails.length + 1))
   let domain = '@springboard.pro
   while (domain === '@springboard.pro') {
     i = math.floor(Math.random() * (emails.length + 1)
