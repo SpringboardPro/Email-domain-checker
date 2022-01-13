@@ -1,7 +1,5 @@
 /* © 2021 Springboard Pro Ltd. */
 
-let decoyEmail
-
 Office.onReady().then(() => {
   //  Office JS in the dialog might not be initiallised by the time the host tries to send the email data so send a confirmation message to confirm it is ready.
   Office.context.ui.messageParent(JSON.stringify({ messageType: 'initialise', message: 'Dialog is ready' }))
@@ -14,7 +12,7 @@ Office.onReady().then(() => {
   getFormValues = function () {
     const toValues = Array.from(document.querySelectorAll("input[type='checkbox']:checked.toCheckBox")).map(item => JSON.parse(item.name))
     const ccValues = Array.from(document.querySelectorAll("input[type='checkbox']:checked.ccCheckBox")).map(item => JSON.parse(item.name))
-    if (toValues.some(e => e.emailAddress === decoyEmail)) {
+    if (toValues.some(e => e.emailAddress === 'decoyEmail')) {
       document.getElementById('warning').style.display = 'block'
     } else {
       document.getElementById('warning').style.display = 'none'
@@ -37,7 +35,7 @@ function createEmailCheckBoxList (arg) {
   const unstringifiedMessage = JSON.parse(arg.message)
   const recipientsTo = unstringifiedMessage[0]
   const recipientsCC = unstringifiedMessage[1]
-  createDecoyEmail(unstringifiedMessage)
+  let decoyEmail = createDecoyEmail(unstringifiedMessage)
   recipientsTo.splice(Math.floor(Math.random() * (recipientsTo.length + 1)), 0, { displayName: 'Deselect This', emailAddress: decoyEmail, recipientType: 'other' })
   if (recipientsTo.length > 0) {
     for (let i = 0; i < recipientsTo.length; i++) {
@@ -96,5 +94,5 @@ function createDecoyEmail (unstringifiedEmails) {
     console.log(domain)
   }
   const name = emails[i].slice(0, emails[i].indexOf('@'))
-  decoyEmail = name + '@springboard.pro'
+  return name + '@springboard.pro'
 }
