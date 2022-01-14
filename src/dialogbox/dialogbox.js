@@ -37,8 +37,10 @@ function createEmailCheckBoxList (arg) {
   const unstringifiedMessage = JSON.parse(arg.message)
   const recipientsTo = unstringifiedMessage[0]
   const recipientsCC = unstringifiedMessage[1]
+  const messageType = unstringifiedMessage[2]
+  console.log(unstringifiedMessage)
+  console.log(messageType)
   decoyEmail = createDecoyEmail(unstringifiedMessage)
-  console.log(decoyEmail)
   recipientsTo.splice(Math.floor(Math.random() * (recipientsTo.length + 1)), 0, { displayName: 'Decoy email unselect', emailAddress: decoyEmail, recipientType: 'other' })
   if (recipientsTo.length > 0) {
     for (let i = 0; i < recipientsTo.length; i++) {
