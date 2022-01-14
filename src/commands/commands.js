@@ -39,6 +39,7 @@ function openDialog (event) {
   promise3.then(function (result) {
     sendEvent = event
     const multipleExternalBool = checkMultipleExternal(processEmails(allRecipientData))
+    console.log(multipleExternalBool)
     if (!multipleExternalBool) {
       event.completed({ allowEvent: true })
     } else {
