@@ -41,12 +41,12 @@ function createEmailCheckBoxList (arg) {
   
   let toLabel
   let ccLabel
-  if (messageType === 'message') {
-    toLabel = 'To Recipients'
-    ccLabel = 'Cc Recipients'
-  } else {
+  if (messageType === 'appointment') {
     toLabel = 'Required Attendees'
     ccLabel = 'Optional Attendees'
+  } else {
+    toLabel = 'To Recipients'
+    ccLabel = 'Cc Recipients'
   }
     
   console.log(unstringifiedMessage)
