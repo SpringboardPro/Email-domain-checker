@@ -87,16 +87,17 @@ function createEmailCheckBoxList (arg) {
   }
 }
 
+/**
+ * Function that creates a decoy email by taking the name part of any of the external emails and adding it to the internal domain.
+ * @param {array} unstringifiedEmails - An array containing the email recipient objects.
+ */
 function createDecoyEmail (unstringifiedEmails) {
   const emails = unstringifiedEmails[0].concat(unstringifiedEmails[1])
-  console.log(emails)
   let i = Math.floor(Math.random() * (emails.length))
   let domain = '@springboard.pro'
   while (domain === '@springboard.pro') {
     i = Math.floor(Math.random() * (emails.length))
-    console.log(i)
     domain = emails[i].emailAddress.slice(emails[i].emailAddress.indexOf('@'), emails[i].emailAddress.length)
-    console.log(domain)
   }
   const name = emails[i].emailAddress.slice(0, emails[i].emailAddress.indexOf('@'))
   return name + '@springboard.pro'
