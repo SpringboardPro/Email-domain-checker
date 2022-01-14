@@ -13,7 +13,8 @@ Office.onReady().then(() => {
   getFormValues = function () {
     const toValues = Array.from(document.querySelectorAll("input[type='checkbox']:checked.toCheckBox")).map(item => JSON.parse(item.name))
     const ccValues = Array.from(document.querySelectorAll("input[type='checkbox']:checked.ccCheckBox")).map(item => JSON.parse(item.name))
-    if (toValues.some(e => e.emailAddress === decoyEmail)) {
+    console.log(decoyEmail)
+    if (toValues.some(e => e.displayName === 'Decoy email unselect')) {
       document.getElementById('warning').style.display = 'block'
     } else {
       document.getElementById('warning').style.display = 'none'
@@ -38,7 +39,7 @@ function createEmailCheckBoxList (arg) {
   const recipientsCC = unstringifiedMessage[1]
   decoyEmail = createDecoyEmail(unstringifiedMessage)
   console.log(decoyEmail)
-  recipientsTo.splice(Math.floor(Math.random() * (recipientsTo.length + 1)), 0, { displayName: 'Deselect This', emailAddress: decoyEmail, recipientType: 'other' })
+  recipientsTo.splice(Math.floor(Math.random() * (recipientsTo.length + 1)), 0, { displayName: 'Decoy email unselect', emailAddress: decoyEmail, recipientType: 'other' })
   if (recipientsTo.length > 0) {
     for (let i = 0; i < recipientsTo.length; i++) {
       $('#toContainer').append(
