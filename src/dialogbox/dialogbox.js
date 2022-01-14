@@ -43,6 +43,7 @@ function createEmailCheckBoxList (arg) {
   decoyEmail = createDecoyEmail(unstringifiedMessage)
   recipientsTo.splice(Math.floor(Math.random() * (recipientsTo.length + 1)), 0, { displayName: 'Decoy email unselect', emailAddress: decoyEmail, recipientType: 'other' })
   if (recipientsTo.length > 0) {
+    document.getElementById("toListTitle").innerHTML = 'Hello' 
     for (let i = 0; i < recipientsTo.length; i++) {
       $('#toContainer').append(
         $(document.createElement('input')).prop({
@@ -65,6 +66,7 @@ function createEmailCheckBoxList (arg) {
   }
 
   if (recipientsCC.length > 0) {
+    document.getElementById("ccListTitle").innerHTML = 'Hello'
     for (let i = 0; i < recipientsCC.length; i++) {
       $('#ccContainer').append(
         $(document.createElement('input')).prop({
