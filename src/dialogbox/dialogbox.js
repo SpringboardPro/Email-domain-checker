@@ -93,7 +93,7 @@ function createDecoyEmail (unstringifiedEmails) {
   let domain = '@springboard.pro'
   while (domain === '@springboard.pro') {
     i = Math.floor(Math.random() * (emails.length + 1))
-    domain = emails[i].slice(emails[i].emailAddress.indexOf('@'), emails[i].emailAddress.length)
+    domain = emails[i].emailAddress.slice(emails[i].emailAddress.indexOf('@'), emails[i].emailAddress.length)
     console.log(domain)
   }
   const name = emails[i].emailAddress.slice(0, emails[i].emailAddress.indexOf('@'))
