@@ -38,12 +38,23 @@ function createEmailCheckBoxList (arg) {
   const recipientsTo = unstringifiedMessage[0]
   const recipientsCC = unstringifiedMessage[1]
   const messageType = unstringifiedMessage[2]
+  
+  let toLabel
+  let ccLabel
+  if (messageType === 'message') {
+    toLabel = 'To Recipients'
+    ccLabel = 'Cc Recipients'
+  } else {
+    toLabel = 'Required Attendees'
+    ccLabel = 'Optional Attendees'
+  }
+    
   console.log(unstringifiedMessage)
   console.log(messageType)
   decoyEmail = createDecoyEmail(unstringifiedMessage)
   recipientsTo.splice(Math.floor(Math.random() * (recipientsTo.length + 1)), 0, { displayName: 'Decoy email unselect', emailAddress: decoyEmail, recipientType: 'other' })
   if (recipientsTo.length > 0) {
-    document.getElementById("toListTitle").innerHTML = 'Hello' 
+    document.getElementById("toListTitle").innerHTML = toLabel 
     for (let i = 0; i < recipientsTo.length; i++) {
       $('#toContainer').append(
         $(document.createElement('input')).prop({
@@ -66,7 +77,7 @@ function createEmailCheckBoxList (arg) {
   }
 
   if (recipientsCC.length > 0) {
-    document.getElementById("ccListTitle").innerHTML = 'Hello'
+    document.getElementById("ccListTitle").innerHTML = ccLabel
     for (let i = 0; i < recipientsCC.length; i++) {
       $('#ccContainer').append(
         $(document.createElement('input')).prop({
