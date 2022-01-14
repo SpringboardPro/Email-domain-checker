@@ -257,3 +257,5 @@ function checkMultipleExternal (emails) {
     return false
   }
 }
+
+module.exports = checkMultipleExternal
