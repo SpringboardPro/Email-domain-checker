@@ -49,7 +49,7 @@ function createEmailCheckBoxList (arg) {
     
   console.log(unstringifiedMessage)
   console.log(messageType)
-  decoyEmail = createDecoyEmail(unstringifiedMessage)
+  let decoyEmail = createDecoyEmail(unstringifiedMessage)
   recipientsTo.splice(Math.floor(Math.random() * (recipientsTo.length + 1)), 0, { displayName: 'Decoy email unselect', emailAddress: decoyEmail, recipientType: 'other' })
   if (recipientsTo.length > 0) {
     document.getElementById("toListTitle").innerHTML = toLabel 
