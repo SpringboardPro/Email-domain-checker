@@ -60,7 +60,6 @@ function openDialog (event) {
           } else {
             dialog = asyncResult.value
             console.log(dialog)
-            window.addEventListener('beforeunload', function (event) { console.log('unloading2') })
             //  Once dialog box has sent message to confirm it is ready. Send dialog box the recipient emails
             dialog.addEventHandler(Office.EventType.DialogMessageReceived, sendEmailsToDialog)
             //  If dialog  sends event (probably user closes), then do 'dialogClosed' function.
