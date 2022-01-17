@@ -1,6 +1,4 @@
 /* © 2021 Springboard Pro Ltd. */
-var decoyEmail
-
 Office.onReady().then(() => {
   //  Office JS in the dialog might not be initiallised by the time the host tries to send the email data so send a confirmation message to confirm it is ready.
   console.log('dialog opened')
@@ -14,7 +12,6 @@ Office.onReady().then(() => {
   getFormValues = function () {
     const toValues = Array.from(document.querySelectorAll("input[type='checkbox']:checked.toCheckBox")).map(item => JSON.parse(item.name))
     const ccValues = Array.from(document.querySelectorAll("input[type='checkbox']:checked.ccCheckBox")).map(item => JSON.parse(item.name))
-    console.log(decoyEmail)
     if (toValues.some(e => e.displayName === 'Decoy email unselect')) {
       document.getElementById('warning').style.display = 'block'
     } else {
