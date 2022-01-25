@@ -52,6 +52,7 @@ function openDialog (event) {
       Office.context.ui.displayDialogAsync(url, { height: 50, width: 50, displayInIframe: true },
         function (asyncResult) {
           //  If dialog failed to open (probably popup blocker) then do 'dialogClosed' function.
+          console.log(asyncResult.status)
           if (asyncResult.status === Office.AsyncResultStatus.Failed) {
             Office.context.ui.closeContainer()
             // If dialog box already open, close dialog and do not send email.
