@@ -33,40 +33,37 @@ function openDialog (event) {
     promise2 = getCCEmails()
   }
 
+  // Use promises to ensure both cc and to recipients have been fetched.
   const promise3 = Promise.all([promise1, promise2]).then(function (result) {
     allRecipientData = result
     recipients = result[0].concat(result[1])
     return allRecipientData
   })
 
-  //  Check if recipients are only internal or not.
+  //  Check if multiple external recipients are present to decide to display dialog box.
   promise3.then(function (result) {
     sendEvent = event
     const multipleExternalBool = checkMultipleExternal(processEmails(allRecipientData))
-    console.log(multipleExternalBool)
     if (!multipleExternalBool) {
       event.completed({ allowEvent: true })
     } else {
       //  Display dialog box (callback function in dialog is to create event handler in host page to recieve info from dialog page).
       const url = 'https://springboardpro.github.io/Email-domain-checker/src/dialogbox/dialogbox.html'
-      console.log(Office.context.ui)
       Office.context.ui.displayDialogAsync(url, { height: 50, width: 50, displayInIframe: true },
         function (asyncResult) {
           //  If dialog failed to open (probably popup blocker) then do 'dialogClosed' function.
           if (asyncResult.status === Office.AsyncResultStatus.Failed) {
             Office.context.ui.closeContainer()
-            console.log(asyncResult.error.message)
-            console.log(asyncResult.value)
+            // If dialog box already open, close dialog and do not send email.
             if (asyncResult.error.code === 12007) {
               dialog.addEventHandler(Office.EventType.DialogMessageReceived, sendEmailwithUpdatedRecipients)
             }
             event.completed({ allowEvent: false })
           } else {
             dialog = asyncResult.value
-            console.log(dialog)
-            //  Once dialog box has sent message to confirm it is ready. Send dialog box the recipient emails
+            //  Once dialog box has sent message to confirm it is ready. Send dialog box the recipient emails.
             dialog.addEventHandler(Office.EventType.DialogMessageReceived, sendEmailsToDialog)
-            //  If dialog  sends event (probably user closes), then do 'dialogClosed' function.
+            //  If dialog  sends event (probably user closes), then do not send the email.
             dialog.addEventHandler(Office.EventType.DialogEventReceived, dialogClosed)
           }
         })
@@ -87,7 +84,6 @@ function dialogClosed () {
  */
 function sendEmailsToDialog (arg) {
   if (JSON.parse(arg.message).messageType === 'initialise') {
-    console.log('dialog is open')
     dialog.messageChild(JSON.stringify(allRecipientData.concat(Office.context.mailbox.item.itemType)), { targetOrigin: '*' })
     dialog.addEventHandler(Office.EventType.DialogMessageReceived, sendEmailwithUpdatedRecipients)
   }
@@ -100,6 +96,7 @@ function sendEmailsToDialog (arg) {
 function sendEmailwithUpdatedRecipients (arg) {
   $(window).bind('resize', function (e) { dialog.close() })
   const message = JSON.parse(arg.message)
+  // If checkbox form results recieved from dialog, send with selected recipients otherwise do not send email and close dialog.
   if (message.messageType === 'form_output') {
     if ((message.toRecipients.length + message.ccRecipients.length) === 0) {
       dialog.close()
@@ -227,18 +224,19 @@ function getCCEmails_appointment () {
  * @param {array} result - An array containing the recipient data.
  */
 function processEmails (result) {
+  // Combine cc and to recipients if needed.
   let recipientData
   if (result.length > 1) {
     recipientData = result[0].concat(result[1])
   } else {
     recipientData = result[0]
   }
+  // Add email address information to a list.
   let emails = []
   for (let i = 0; i < recipientData.length; i++) {
     let Email = recipientData[i].emailAddress
     emails.push(Email)
   }
-  console.log(emails)
   return emails
 }
 
@@ -247,6 +245,7 @@ function processEmails (result) {
  * @param {array} emails - An array containing the emails to be checked.
  */
 function checkMultipleExternal (emails) {
+  // Create list of external emails.
   let externalEmails = []
   for (let i = 0; i < emails.length; i++) {
     let domain = emails[i].slice(emails[i].indexOf('@'), emails[i].length)
@@ -254,6 +253,7 @@ function checkMultipleExternal (emails) {
       externalEmails.push(domain)
     }
   }
+  // Return true if number of unique external domains is more than 1.
   const numberExternalDomains = new Set(externalEmails).size
   if (numberExternalDomains > 1) {
     return true
