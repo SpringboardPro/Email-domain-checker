@@ -1,4 +1,8 @@
-/* © 2021 Springboard Pro Ltd. */
+/* 
+© 2021 Springboard Pro Ltd.
+Version 1.0.0
+Author: Hamish Atkins
+*/
 
 let dialog
 let recipients
