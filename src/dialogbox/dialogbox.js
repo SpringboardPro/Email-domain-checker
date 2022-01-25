@@ -16,6 +16,7 @@ Office.onReady().then(() => {
   getFormValues = function () {
     const toValues = Array.from(document.querySelectorAll("input[type='checkbox']:checked.toCheckBox")).map(item => JSON.parse(item.name))
     const ccValues = Array.from(document.querySelectorAll("input[type='checkbox']:checked.ccCheckBox")).map(item => JSON.parse(item.name))
+    // Display warning message if decoy email selected, otherwise send selected email recipients to host.
     if (toValues.some(e => e.displayName === 'Decoy email unselect')) {
       document.getElementById('warning').style.display = 'block'
     } else {
@@ -50,13 +51,13 @@ function createEmailCheckBoxList (arg) {
     toLabel = 'To Recipients'
     ccLabel = 'Cc Recipients'
   }
-    
-  console.log(unstringifiedMessage)
-  console.log(messageType)
+  // Create html checkbox list for 'to' recipients for email or 'required' attendees if meeting request.
   let decoyEmail = createDecoyEmail(unstringifiedMessage)
   recipientsTo.splice(Math.floor(Math.random() * (recipientsTo.length + 1)), 0, { displayName: 'Decoy email unselect', emailAddress: decoyEmail, recipientType: 'other' })
   if (recipientsTo.length > 0) {
+    // Set list title depending on if email or meeting request.
     document.getElementById("toListTitle").innerHTML = toLabel 
+    // Create checkbox for each email address.
     for (let i = 0; i < recipientsTo.length; i++) {
       $('#toContainer').append(
         $(document.createElement('input')).prop({
@@ -72,14 +73,18 @@ function createEmailCheckBoxList (arg) {
       ).append(document.createElement('br'))
     }
   } else {
+    // Do not display list if no 'to' recipients are present.
     const toListTitle = document.getElementById('toListTitle')
     toListTitle.style.display = 'none'
     const toListContainer = document.getElementById('toContainer')
     toListContainer.style.display = 'none'
   }
-
+  
+  // Create html checkbox list for 'cc' recipients for email or 'optional' attendees if meeting request.
   if (recipientsCC.length > 0) {
+    // Set list title depending on if email or meeting request.
     document.getElementById("ccListTitle").innerHTML = ccLabel
+    // Create checkbox for each email address. 
     for (let i = 0; i < recipientsCC.length; i++) {
       $('#ccContainer').append(
         $(document.createElement('input')).prop({
@@ -95,6 +100,7 @@ function createEmailCheckBoxList (arg) {
       ).append(document.createElement('br'))
     }
   } else {
+    // Do not display list if no 'cc' recipients are present.
     const ccListTitle = document.getElementById('ccListTitle')
     ccListTitle.style.display = 'none'
     const ccListContainer = document.getElementById('ccContainer')
