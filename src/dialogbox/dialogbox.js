@@ -1,4 +1,9 @@
-/* © 2021 Springboard Pro Ltd. */
+/* 
+© 2021 Springboard Pro Ltd.
+Version 1.0.0
+Author: Hamish Atkins
+*/
+
 Office.onReady().then(() => {
   //  Office JS in the dialog might not be initiallised by the time the host tries to send the email data so send a confirmation message to confirm it is ready.
   console.log('dialog opened')
