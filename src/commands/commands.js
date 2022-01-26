@@ -256,9 +256,5 @@ function checkMultipleExternal (emails) {
   }
   // Return true if number of unique external domains is more than 1.
   const numberExternalDomains = new Set(externalEmails).size
-  if (numberExternalDomains > 1) {
-    return true
-  } else {
-    return false
-  }
+  return (numberExternalDomains > 1)
 }
