@@ -123,5 +123,5 @@ function createDecoyEmail (unstringifiedEmails) {
     domain = emails[i].emailAddress.slice(emails[i].emailAddress.indexOf('@'), emails[i].emailAddress.length)
   }
   const name = emails[i].emailAddress.slice(0, emails[i].emailAddress.indexOf('@'))
-  return name + '@springboard.pro'
+  return name + '@example.com'
 }
