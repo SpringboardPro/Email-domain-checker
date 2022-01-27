@@ -14,15 +14,18 @@ Office.onReady().then(() => {
 
   //  Get form results from dialog box.
   getFormValues = function () {
-    const toValues = Array.from(document.querySelectorAll("input[type='checkbox']:checked.toCheckBox")).map(item => JSON.parse(item.name))
-    const ccValues = Array.from(document.querySelectorAll("input[type='checkbox']:checked.ccCheckBox")).map(item => JSON.parse(item.name))
-    console.log(Array.from(document.querySelectorAll("input[type='checkbox'].toCheckBox")).map(item => JSON.parse(item.name)))
+    const selectedToValues = Array.from(document.querySelectorAll("input[type='checkbox']:checked.toCheckBox")).map(item => JSON.parse(item.name))
+    const selectedCCValues = Array.from(document.querySelectorAll("input[type='checkbox']:checked.ccCheckBox")).map(item => JSON.parse(item.name))
+    const toValues = Array.from(document.querySelectorAll("input[type='checkbox'].toCheckBox")).map(item => JSON.parse(item.name)))
+    const ccValues = Array.from(document.querySelectorAll("input[type='checkbox'].ccCheckBox")).map(item => JSON.parse(item.name))
+    console.log(selectedToValues)
+    console.log(selectedCCValues)
     // Display warning message if decoy email selected, otherwise send selected email recipients to host.
-    if (toValues.some(e => e.displayName === 'Decoy email unselect')) {
+    if ((toValues.some(e => e.displayName === 'Decoy email unselect')) || (selectedToValues.length === toValues.length - 1) || (selectedCCValues.length === ccValues.length - 1)) {
       document.getElementById('warning').style.display = 'block'
     } else {
       document.getElementById('warning').style.display = 'none'
-      const selectedEmails = { messageType: 'form_output', toRecipients: toValues, ccRecipients: ccValues }
+      const selectedEmails = { messageType: 'form_output', toRecipients: selectedToValues, ccRecipients: selectedCCValues }
       Office.context.ui.messageParent(JSON.stringify(selectedEmails))
     }
   }
