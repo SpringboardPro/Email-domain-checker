@@ -189,6 +189,22 @@ function getCCEmails () {
 }
 
 /**
+ * A function that gets the 'bcc' recipient data from the email.
+ */
+function getBCCEmails () {
+  return new Promise(function (resolve, reject) {
+    try {
+      Office.context.mailbox.item.bcc.getAsync(function (asyncResult) {
+        resolve(asyncResult.value)
+      })
+    }
+    catch (error) {
+      reject('Error')
+    }
+  })
+}
+
+/**
  * A function that gets the 'required' recipient data from the meeting request.
  */
 function getToEmailsAppointment() {
