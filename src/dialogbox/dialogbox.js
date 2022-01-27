@@ -42,7 +42,6 @@ Office.onReady().then(() => {
  */
 function createEmailCheckBoxList (arg) {
   const unstringifiedMessage = JSON.parse(arg.message)
-  console.log(unstringifiedMessage)
   let recipientsTo
   let recipientsCC
   let recipientsBCC
@@ -161,6 +160,7 @@ function createEmailCheckBoxList (arg) {
  * @param {array} unstringifiedEmails - An array containing the email recipient objects.
  */
 function createDecoyEmail (unstringifiedEmails) {
+  console.log(unstringifiedEmails)
   let emails
   if (unstringifiedEmails > 3) {
     emails = unstringifiedEmails[0].concat(unstringifiedEmails[1]).concat(unstringifiedEmails[2])
