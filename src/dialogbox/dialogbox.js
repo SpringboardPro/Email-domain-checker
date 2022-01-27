@@ -165,7 +165,8 @@ function createDecoyEmail (unstringifiedEmails) {
     emails = unstringifiedEmails[0].concat(unstringifiedEmails[1]).concat(unstringifiedEmails[2])
   } else {
     emails = unstringifiedEmails[0].concat(unstringifiedEmails[1])
-  }                                                                 
+  }
+  console.log(emails)
   let i = Math.floor(Math.random() * (emails.length))
   let domain = '@springboard.pro'
   while (domain === '@springboard.pro') {
