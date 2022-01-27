@@ -42,7 +42,7 @@ label {
 	padding-left: 10px;
 }
 
-.toCheckBox, .ccCheckBox {
+.toCheckBox, .ccCheckBox, .bccCheckBox {
 	margin-bottom: 20px;
 }
 
@@ -69,10 +69,16 @@ label {
 	background-color: #BFBFBF;
 }
 
-#ccEmailList{
+#bccEmailList{
 	display:block;
 	margin-top: 30px;
 	margin-bottom: 35px;
+}
+
+#ccEmailList{
+	display:block;
+	margin-top: 30px;
+	margin-bottom: 30px;
 }
 
 #toEmailList{
@@ -107,7 +113,7 @@ label {
 	#send_button{
 		margin-right:2.5%;
 	}
-	#ccEmailList{
+	#bccEmailList{
 		margin-bottom:15px;
 	}
 }
