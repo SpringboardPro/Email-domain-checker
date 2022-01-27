@@ -54,6 +54,7 @@ function createEmailCheckBoxList (arg) {
   } else {
     recipientsTo = unstringifiedMessage[0]
     recipientsCC = unstringifiedMessage[1]
+    recipientsBCC = []
     messageType = unstringifiedMessage[2]
   }
 
