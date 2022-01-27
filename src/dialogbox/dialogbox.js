@@ -162,7 +162,7 @@ function createEmailCheckBoxList (arg) {
 function createDecoyEmail (unstringifiedEmails) {
   let emails
   if (unstringifiedEmails > 3) {
-    emails = unstringifiedEmails[0].concat(unstringifiedEmails[1].concat(unstringifiedEmails[2]
+    emails = unstringifiedEmails[0].concat(unstringifiedEmails[1].concat(unstringifiedEmails[2])
   } else {
     emails = unstringifiedEmails[0].concat(unstringifiedEmails[1])}                                                                 }
   let i = Math.floor(Math.random() * (emails.length))
