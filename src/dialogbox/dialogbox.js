@@ -163,7 +163,7 @@ function createDecoyEmail (unstringifiedEmails) {
   console.log(unstringifiedEmails)
   let emails
   if (unstringifiedEmails > 3) {
-    emails = unstringifiedEmails[0].concat(unstringifiedEmails[1]).concat(unstringifiedEmails[2])
+    emails = unstringifiedEmails[0].concat(unstringifiedEmails[1], unstringifiedEmails[2])
   } else {
     emails = unstringifiedEmails[0].concat(unstringifiedEmails[1])
   }
