@@ -160,7 +160,7 @@ function createEmailCheckBoxList (arg) {
  * @param {array} unstringifiedEmails - An array containing the email recipient objects.
  */
 function createDecoyEmail (unstringifiedEmails) {
-  console.log(unstringifiedEmails)
+  console.log(unstringifiedEmails[0].concat(unstringifiedEmails[1], unstringifiedEmails[2]))
   let emails
   if (unstringifiedEmails > 3) {
     emails = unstringifiedEmails[0].concat(unstringifiedEmails[1], unstringifiedEmails[2])
