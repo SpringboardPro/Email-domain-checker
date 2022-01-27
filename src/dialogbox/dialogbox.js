@@ -19,7 +19,8 @@ Office.onReady().then(() => {
     const toValues = Array.from(document.querySelectorAll("input[type='checkbox'].toCheckBox")).map(item => JSON.parse(item.name))
     const ccValues = Array.from(document.querySelectorAll("input[type='checkbox'].ccCheckBox")).map(item => JSON.parse(item.name))
     console.log(selectedToValues)
-    console.log(selectedCCValues)
+    console.log(toValues)
+    console.log(selectedToValues.length !== toValues.length - 1)
     // Display warning message if decoy email selected, otherwise send selected email recipients to host.
     if ((toValues.some(e => e.displayName === 'Decoy email unselect')) || (selectedToValues.length !== toValues.length - 1) || (selectedCCValues.length !== ccValues.length)) {
       document.getElementById('warning').style.display = 'block'
