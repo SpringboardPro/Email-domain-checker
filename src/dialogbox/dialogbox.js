@@ -40,10 +40,10 @@ Office.onReady().then(() => {
  */
 function createEmailCheckBoxList (arg) {
   const unstringifiedMessage = JSON.parse(arg.message)
-  const recipientsTo
-  const recipientsCC
-  const recipientsBCC
-  const messageType
+  let recipientsTo
+  let recipientsCC
+  let recipientsBCC
+  let messageType
   if (unstringifiedMessage.length > 3) {
     recipientsTo = unstringifiedMessage[0]
     recipientsCC = unstringifiedMessage[1]
