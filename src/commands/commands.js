@@ -136,7 +136,7 @@ function setRecipients (toRecipients, ccRecipients, bccRecipients) {
   } else {
     RecipientsTo = item.to
     RecipientsCC = item.cc
-    RecipientsBCC = items.bcc
+    RecipientsBCC = item.bcc
   }
 
   // Use asynchronous method setAsync to set each type of recipients
