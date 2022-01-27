@@ -20,9 +20,9 @@ Office.onReady().then(() => {
     const ccValues = Array.from(document.querySelectorAll("input[type='checkbox'].ccCheckBox")).map(item => JSON.parse(item.name))
     console.log(selectedCCValues)
     console.log(ccValues)
-    console.log(((toValues.some(e => e.displayName === 'Decoy email unselect')) || (selectedToValues.length !== toValues.length - 1) || (selectedCCValues.length !== ccValues.length)))
+    console.log(((selectedToValues.some(e => e.displayName === 'Decoy email unselect')) || (selectedToValues.length !== toValues.length - 1) || (selectedCCValues.length !== ccValues.length)))
     // Display warning message if decoy email selected, otherwise send selected email recipients to host.
-    if ((toValues.some(e => e.displayName === 'Decoy email unselect')) || (selectedToValues.length !== toValues.length - 1) || (selectedCCValues.length !== ccValues.length)) {
+    if ((selectedToValues.some(e => e.displayName === 'Decoy email unselect')) || (selectedToValues.length !== toValues.length - 1) || (selectedCCValues.length !== ccValues.length)) {
       document.getElementById('warning').style.display = 'block'
     } else {
       document.getElementById('warning').style.display = 'none'
