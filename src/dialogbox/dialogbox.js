@@ -160,18 +160,12 @@ function createEmailCheckBoxList (arg) {
  * @param {array} unstringifiedEmails - An array containing the email recipient objects.
  */
 function createDecoyEmail (unstringifiedEmails) {
-  console.log(unstringifiedEmails)
-  console.log(unstringifiedEmails[0])
-  console.log(unstringifiedEmails[1])
-  console.log(unstringifiedEmails[2])
-  console.log(unstringifiedEmails[0].concat(unstringifiedEmails[1], unstringifiedEmails[2]))
   let emails
-  if (unstringifiedEmails > 3) {
+  if (unstringifiedEmails.length > 3) {
     emails = unstringifiedEmails[0].concat(unstringifiedEmails[1], unstringifiedEmails[2])
   } else {
     emails = unstringifiedEmails[0].concat(unstringifiedEmails[1])
   }
-  console.log(emails)
   let i = Math.floor(Math.random() * (emails.length))
   let domain = '@springboard.pro'
   while (domain === '@springboard.pro') {
