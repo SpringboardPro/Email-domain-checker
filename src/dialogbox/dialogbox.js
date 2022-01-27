@@ -40,12 +40,24 @@ Office.onReady().then(() => {
  */
 function createEmailCheckBoxList (arg) {
   const unstringifiedMessage = JSON.parse(arg.message)
-  const recipientsTo = unstringifiedMessage[0]
-  const recipientsCC = unstringifiedMessage[1]
-  const messageType = unstringifiedMessage[2]
-  
+  const recipientsTo
+  const recipientsCC
+  const recipientsBCC
+  const messageType
+  if (unstringifiedMessage.length > 3) {
+    recipientsTo = unstringifiedMessage[0]
+    recipientsCC = unstringifiedMessage[1]
+    recipientsBCC = unstringifiedMessage[2]
+    messageType = unstringifiedMessage[3]
+  } else {
+    recipientsTo = unstringifiedMessage[0]
+    recipientsCC = unstringifiedMessage[1]
+    messageType = unstringifiedMessage[2]
+  }
+
   let toLabel
   let ccLabel
+  let bccLabel = 'Bcc Recipients'
   if (messageType === 'appointment') {
     toLabel = 'Required Attendees'
     ccLabel = 'Optional Attendees'
@@ -109,6 +121,35 @@ function createEmailCheckBoxList (arg) {
     ccListContainer.style.display = 'none'
     const ccEmailList = document.getElementById('ccEmailList')
     ccEmailList.style.display = 'none'
+  }
+  
+// Create html checkbox list for 'bcc' recipients for email.
+    if (recipientsBCC.length > 0) {
+    // Set list title depending on if email or meeting request.
+    document.getElementById("bccListTitle").innerHTML = 'Bcc Recipients'
+    // Create checkbox for each email address. 
+    for (let i = 0; i < recipientsBCC.length; i++) {
+      $('#bccContainer').append(
+        $(document.createElement('input')).prop({
+          id: 'emailBcc' + String(i),
+          name: JSON.stringify(recipientsBCC[i]),
+          class: 'bccCheckBox',
+          type: 'checkbox'
+        })
+      ).append(
+        $(document.createElement('label')).prop({
+          for: 'emailBcc' + String(i)
+        }).html(String(recipientsBCC[i].emailAddress))
+      ).append(document.createElement('br'))
+    }
+  } else {
+    // Do not display list if no 'cc' recipients are present.
+    const bccListTitle = document.getElementById('bccListTitle')
+    bccListTitle.style.display = 'none'
+    const bccListContainer = document.getElementById('bccContainer')
+    bccListContainer.style.display = 'none'
+    const bccEmailList = document.getElementById('bccEmailList')
+    bccEmailList.style.display = 'none'
   }
 }
 
