@@ -105,11 +105,11 @@ function sendEmailwithUpdatedRecipients (arg) {
   const message = JSON.parse(arg.message)
   // If checkbox form results recieved from dialog, send with selected recipients otherwise do not send email and close dialog.
   if (message.messageType === 'form_output') {
-    if ((message.toRecipients.length + message.ccRecipients.length) === 0) {
+    if ((message.toRecipients.length + message.ccRecipients.length + message.bccRecipients) === 0) {
       dialog.close()
       sendEvent.completed({ allowEvent: false })
     } else {
-      setRecipients(message.toRecipients, message.ccRecipients)
+      setRecipients(message.toRecipients, message.ccRecipients, message.bccRecipients)
       sendEvent.completed({ allowEvent: true })
       dialog.close()
     }
@@ -124,10 +124,10 @@ function sendEmailwithUpdatedRecipients (arg) {
  * @param {object} toRecipients - Object that contains the 'to' or 'required' recipients data.
  * @param {object} ccRecipients - Object that contains the 'cc' or 'optional' recipients data.
  */
-function setRecipients (toRecipients, ccRecipients) {
+function setRecipients (toRecipients, ccRecipients, bccRecipients) {
   // Local objects to point to recipients of either the appointment or message that is being composed.
   // bccRecipients applies to only messages, not appointments.
-  let RecipientsTo, RecipientsCC
+  let RecipientsTo, RecipientsCC, RecipientsBCC
   item = Office.context.mailbox.item
   // Verify if the composed item is an appointment or message.
   if (item.itemType === Office.MailboxEnums.ItemType.Appointment) {
@@ -136,6 +136,7 @@ function setRecipients (toRecipients, ccRecipients) {
   } else {
     RecipientsTo = item.to
     RecipientsCC = item.cc
+    RecipientsBCC = items.bcc
   }
 
   // Use asynchronous method setAsync to set each type of recipients
@@ -160,6 +161,18 @@ function setRecipients (toRecipients, ccRecipients) {
         // Async call to set cc-recipients of the item completed.
       }
     }) // End cc setAsync.
+  
+  if (item.itemType !== Office.MailboxEnums.ItemType.Appointment) {
+    // Set any cc-recipients.
+    RecipientsBCC.setAsync(bccRecipients,
+      function (asyncResult) {
+        if (asyncResult.status === Office.AsyncResultStatus.Failed) {
+          write(asyncResult.error.message)
+        } else {
+          // Async call to set cc-recipients of the item completed.
+        }
+      }) // End bcc setAsync.
+  }
 }
 
 /**
