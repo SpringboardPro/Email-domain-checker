@@ -21,7 +21,7 @@ Office.onReady().then(() => {
     console.log(selectedToValues)
     console.log(selectedCCValues)
     // Display warning message if decoy email selected, otherwise send selected email recipients to host.
-    if ((toValues.some(e => e.displayName === 'Decoy email unselect')) || (selectedToValues.length === toValues.length - 1) || (selectedCCValues.length === ccValues.length)) {
+    if ((toValues.some(e => e.displayName === 'Decoy email unselect')) || (selectedToValues.length !== toValues.length - 1) || (selectedCCValues.length !== ccValues.length)) {
       document.getElementById('warning').style.display = 'block'
     } else {
       document.getElementById('warning').style.display = 'none'
