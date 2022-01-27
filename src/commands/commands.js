@@ -25,23 +25,32 @@ function openDialog (event) {
   // Verify if the composed item is an appointment or message.
   let promise1
   let promise2
+  let promise3
+  let promise4
   if (item.itemType === Office.MailboxEnums.ItemType.Appointment) {
     promise1 = getToEmailsAppointment()
     promise2 = getCCEmails_appointment()
+    // Use promises to ensure required and optional attendees have been fetched.
+    promise4 = Promise.all([promise1, promise2]).then(function (result) {
+      allRecipientData = result
+      recipients = result[0].concat(result[1])
+      return allRecipientData
+    })
   } else {
     promise1 = getToEmails()
     promise2 = getCCEmails()
+    promise3 = getCCEmails()
+    // Use promises to ensure bcc, cc and to recipients have been fetched.
+    promise4 = Promise.all([promise1, promise2]).then(function (result) {
+      allRecipientData = result
+      console.log(allRecipientData)
+      recipients = result[0].concat(result[1])
+      return allRecipientData
+    })
   }
 
-  // Use promises to ensure both cc and to recipients have been fetched.
-  const promise3 = Promise.all([promise1, promise2]).then(function (result) {
-    allRecipientData = result
-    recipients = result[0].concat(result[1])
-    return allRecipientData
-  })
-
   //  Check if multiple external recipients are present to decide to display dialog box.
-  promise3.then(function (result) {
+  promise4.then(function (result) {
     sendEvent = event
     const multipleExternalBool = checkMultipleExternal(processEmails(allRecipientData))
     if (!multipleExternalBool) {
