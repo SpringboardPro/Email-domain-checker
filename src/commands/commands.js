@@ -39,9 +39,9 @@ function openDialog (event) {
   } else {
     promise1 = getToEmails()
     promise2 = getCCEmails()
-    promise3 = getCCEmails()
+    promise3 = getBCCEmails()
     // Use promises to ensure bcc, cc and to recipients have been fetched.
-    promise4 = Promise.all([promise1, promise2]).then(function (result) {
+    promise4 = Promise.all([promise1, promise2, promise3]).then(function (result) {
       allRecipientData = result
       console.log(allRecipientData)
       recipients = result[0].concat(result[1])
