@@ -16,6 +16,7 @@ Office.onReady().then(() => {
   getFormValues = function () {
     const toValues = Array.from(document.querySelectorAll("input[type='checkbox']:checked.toCheckBox")).map(item => JSON.parse(item.name))
     const ccValues = Array.from(document.querySelectorAll("input[type='checkbox']:checked.ccCheckBox")).map(item => JSON.parse(item.name))
+    console.log(Array.from(document.querySelectorAll("input[type='checkbox']:checked.toCheckBox")).map(item => JSON.parse(item.name)))
     // Display warning message if decoy email selected, otherwise send selected email recipients to host.
     if (toValues.some(e => e.displayName === 'Decoy email unselect')) {
       document.getElementById('warning').style.display = 'block'
