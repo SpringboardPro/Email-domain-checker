@@ -33,7 +33,6 @@ function openDialog (event) {
     // Use promises to ensure required and optional attendees have been fetched.
     promise4 = Promise.all([promise1, promise2]).then(function (result) {
       allRecipientData = result
-      recipients = result[0].concat(result[1])
       return allRecipientData
     })
   } else {
@@ -43,8 +42,6 @@ function openDialog (event) {
     // Use promises to ensure bcc, cc and to recipients have been fetched.
     promise4 = Promise.all([promise1, promise2, promise3]).then(function (result) {
       allRecipientData = result
-      console.log(allRecipientData)
-      recipients = result[0].concat(result[1])
       return allRecipientData
     })
   }
@@ -252,7 +249,9 @@ function getCCEmails_appointment () {
 function processEmails (result) {
   // Combine cc and to recipients if needed.
   let recipientData
-  if (result.length > 1) {
+  if (result.length > 2) {
+    recipientData = result[0].concat(result[1]).concat(result[2])
+  } else if (result.length > 1) {
     recipientData = result[0].concat(result[1])
   } else {
     recipientData = result[0]
