@@ -65,12 +65,12 @@ function createEmailCheckBoxList (arg) {
     toLabel = 'Required Attendees'
     ccLabel = 'Optional Attendees'
     document.getElementById('mainLabel').innerHTML = 'Please confirm the attendees of your invite:'
-    document.getElementById('warning').innerHTML = 'Cannot send invite. Incorrect email address selected.'
+    document.getElementById('warning').innerHTML = 'Cannot send invite. The selected email addresses are incorrect.'
   } else {
     toLabel = 'To Recipients'
     ccLabel = 'Cc Recipients'
     document.getElementById('mainLabel').innerHTML = 'Please confirm the recipients of your email:'
-    document.getElementById('warning').innerHTML = 'Cannot send email. Incorrect email address selected.'
+    document.getElementById('warning').innerHTML = 'Cannot send email. The selected email addresses are incorrect.'
   }
   // Create html checkbox list for 'to' recipients for email or 'required' attendees if meeting request.
   let decoyEmail = createDecoyEmail(unstringifiedMessage)
