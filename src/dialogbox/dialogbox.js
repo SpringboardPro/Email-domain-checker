@@ -64,7 +64,7 @@ function createEmailCheckBoxList (arg) {
   if (messageType === 'appointment') {
     toLabel = 'Required Attendees'
     ccLabel = 'Optional Attendees'
-    document.getElementById('mainLabel').innerHTML = 'Please confirm the attendees of your invite:'
+    document.getElementById('mainLabel').innerHTML = 'Please confirm the recipients of your invite:'
     document.getElementById('warning').innerHTML = 'Cannot send invite. The selected email addresses are incorrect.'
   } else {
     toLabel = 'To Recipients'
