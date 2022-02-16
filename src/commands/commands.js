@@ -286,7 +286,7 @@ function checkMultipleExternal (emails) {
   // Create list of external emails.
   let externalEmails = []
   for (let i = 0; i < emails.length; i++) {
-    let domain = emails[i].slice(emails[i].indexOf('@').toUpperCase(), emails[i].length)
+    let domain = emails[i].slice(emails[i].indexOf('@'), emails[i].length).toUpperCase()
     if (domain !== '@SPRINGBOARD.PRO') {
       externalEmails.push(domain)
     }
