@@ -113,7 +113,6 @@ function sendEmailwithUpdatedRecipients (arg) {
       setRecipients(message.toRecipients, message.ccRecipients, message.bccRecipients)
       sendEvent.completed({ allowEvent: true })
       dialog.close()
-      sendEvent.completed({ allowEvent: false })
     }
   } else if (message.messageType === 'cancel') {
     dialog.close()
