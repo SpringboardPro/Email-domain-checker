@@ -49,6 +49,7 @@ function openDialog (event) {
   //  Check if multiple external recipients are present to decide to display dialog box.
   promise4.then(function (result) {
     sendEvent = event
+    event.completed({ allowEvent: false })
     console.log(allRecipientData)
     const multipleExternalBool = checkMultipleExternal(processEmails(allRecipientData))
     if (!multipleExternalBool) {
