@@ -18,18 +18,18 @@
     </Sets>
   </Requirements>
   <FormSettings>
-    <Form xsi:type="ItemEdit">
+    <Form xsi:type="ItemRead">
       <DesktopSettings>
         <SourceLocation DefaultValue="https://springboardpro.github.io/Email-domain-checker/src/commands/commands.html"/>
         
         
-        
+        <RequestedHeight>250</RequestedHeight>
       </DesktopSettings>
     </Form>
   </FormSettings>
-  <Permissions>ReadWriteMailbox</Permissions>
+  <Permissions>ReadWriteItem</Permissions>
   <Rule xsi:type="RuleCollection" Mode="Or">
-    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Edit"/>
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="ReadOrEdit"/>
   </Rule>
   <DisableEntityHighlighting>false</DisableEntityHighlighting>
   <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
